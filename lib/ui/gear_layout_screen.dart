@@ -2317,10 +2317,43 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                     ],
                     CheckboxListTile(
                       value: dontShowAgain,
-                      onChanged: (value) {
-                        setLocal(() {
-                          dontShowAgain = value ?? false;
-                        });
+                      onChanged: (value) async {
+                        final newValue = value ?? false;
+
+                        // Turning it off never needs confirmation
+                        if (!newValue) {
+                          setLocal(() {
+                            dontShowAgain = false;
+                          });
+                          return;
+                        }
+
+                        // Turning it on should ask for confirmation
+                        final confirm = await showDialog<bool>(
+                          context: ctx,
+                          builder: (confirmCtx) => AlertDialog(
+                            title: const Text('Are you sure?'),
+                            content: const Text(
+                              'You will not be shown an update again until a new release is added.',
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.of(confirmCtx).pop(false),
+                                child: const Text('Cancel'),
+                              ),
+                              FilledButton(
+                                onPressed: () => Navigator.of(confirmCtx).pop(true),
+                                child: const Text('Yes'),
+                              ),
+                            ],
+                          ),
+                        );
+
+                        if (confirm == true) {
+                          setLocal(() {
+                            dontShowAgain = true;
+                          });
+                        }
                       },
                       contentPadding: EdgeInsets.zero,
                       controlAffinity: ListTileControlAffinity.leading,
@@ -2340,7 +2373,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                       if (!ctx.mounted) return;
                       Navigator.pop(ctx);
                     },
-                    child: const Text('Later'),
+                    child: const Text('Close'),
                   ),
                   FilledButton(
                     onPressed: () async {

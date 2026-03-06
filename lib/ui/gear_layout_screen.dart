@@ -744,6 +744,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
         title: const Text('Totals Notes'),
         content: const Text(
           'Stat Totals shown are calculated assuming level 80, all Datacrons are obtained, '
+          'all Class Buffs are obtained,'
           'NO Relic Procs/Activations, and NO Guild Buffs',
         ),
         actions: [

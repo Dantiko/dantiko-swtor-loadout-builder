@@ -6,8 +6,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class AppDatabase {
-  static const _dbName = 'swtor_calculator.db';
-  static const _dbVersion = 1;
+  static const _dbName = 'dantiko_lb.db';
+  static const _dbVersion = 2;
 
   static Database? _database;
 
@@ -24,7 +24,10 @@ class AppDatabase {
       databaseFactory = databaseFactoryFfi;
     }
 
-    final dbPath = await getDatabasesPath();
+    final dbPath = join(
+      await getDatabasesPath(),
+      'dantiko_lb'
+    );
     final path = join(dbPath, _dbName);
 
     return await openDatabase(

@@ -2265,7 +2265,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
 
   Future<void> _checkForUpdates({bool manual = false}) async {
     final checker = UpdateChecker(
-      Uri.parse('https://https//dantiko.github.io/dantiko-swtor-loadout-builder/update.json'),
+      Uri.parse('https://dantiko.github.io/dantiko-swtor-loadout-builder/update.json'),
     );
 
     try {

@@ -10,6 +10,9 @@ import '../models/selected_spec_context.dart';
 import '../data/loadout_repository.dart';
 import 'dart:convert';
 import 'package:file_selector/file_selector.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../services/update_checker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/loadout_transfer.dart';
 
@@ -40,6 +43,10 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
   @override
   void initState() {
     super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkForUpdates();
+    });
 
     // Defensive: ensure NONE keys exist
     widget.repo.augments.putIfAbsent('AUG_NONE', () => const StatBundle());
@@ -2134,7 +2141,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
   );
 
   return picked;
-}
+  }
 
   Future<void> _openEditLoadoutDialog(
     BuildContext ctx,
@@ -2251,6 +2258,119 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
         );
       },
     );
+  }
+
+  static const String _dismissedUpdateVersionKey = 'dismissed_update_version';
+
+  Future<void> _checkForUpdates({bool manual = false}) async {
+    final checker = UpdateChecker(
+      Uri.parse('https://https//dantiko.github.io/dantiko-swtor-loadout-builder/update.json'),
+    );
+
+    try {
+      final info = await checker.check();
+      if (info == null) return;
+
+      if (!info.hasUpdate) {
+        if (manual && mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('You are running the latest version.'),
+            ),
+          );
+        }
+        return;
+      }
+
+      final prefs = await SharedPreferences.getInstance();
+      final dismissedVersion = prefs.getString(_dismissedUpdateVersionKey);
+
+      // Skip popup if user already dismissed this exact version,
+      // unless they manually asked to check.
+      if (!manual && dismissedVersion == info.latestVersion) {
+        return;
+      }
+
+      if (!mounted) return;
+
+      bool dontShowAgain = false;
+
+      await showDialog<void>(
+        context: context,
+        builder: (ctx) {
+          return StatefulBuilder(
+            builder: (ctx, setLocal) {
+              return AlertDialog(
+                title: const Text('Update Available'),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Current version: ${info.currentVersion}'),
+                    Text('Latest version: ${info.latestVersion}'),
+                    const SizedBox(height: 12),
+                    if (info.notes.isNotEmpty) ...[
+                      const Text('What’s new:'),
+                      const SizedBox(height: 6),
+                      ...info.notes.map((n) => Text('• $n')),
+                      const SizedBox(height: 12),
+                    ],
+                    CheckboxListTile(
+                      value: dontShowAgain,
+                      onChanged: (value) {
+                        setLocal(() {
+                          dontShowAgain = value ?? false;
+                        });
+                      },
+                      contentPadding: EdgeInsets.zero,
+                      controlAffinity: ListTileControlAffinity.leading,
+                      title: const Text("Don't show again for this version"),
+                    ),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () async {
+                      if (dontShowAgain) {
+                        await prefs.setString(
+                          _dismissedUpdateVersionKey,
+                          info.latestVersion,
+                        );
+                      }
+                      if (!ctx.mounted) return;
+                      Navigator.pop(ctx);
+                    },
+                    child: const Text('Later'),
+                  ),
+                  FilledButton(
+                    onPressed: () async {
+                      // Clear dismissed version so future checks work normally
+                      // if they don't install immediately.
+                      await prefs.remove(_dismissedUpdateVersionKey);
+
+                      final uri = Uri.parse(info.installerUrl);
+                      await launchUrl(uri);
+
+                      if (!ctx.mounted) return;
+                      Navigator.pop(ctx);
+                    },
+                    child: const Text('Download'),
+                  ),
+                ],
+              );
+            },
+          );
+        },
+      );
+    } catch (_) {
+      if (manual && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Unable to check for updates.'),
+          ),
+        );
+      }
+    }
   }
 }
 

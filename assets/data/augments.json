@@ -1,0 +1,177 @@
+{
+  "AUG_318_MASTERY": {
+    "mastery": 162,
+    "endurance": 212,
+    "power": 212
+  },
+  "AUG_318_CRITICAL": {
+    "endurance": 212,
+    "power": 212,
+    "critical": 162
+  },
+  "AUG_318_ALACRITY": {
+    "endurance": 212,
+    "power": 212,
+    "alacrity": 162
+  },
+  "AUG_318_ACCURACY": {
+    "endurance": 212,
+    "power": 212,
+    "accuracy": 162
+  },
+  "AUG_318_SHIELD": {
+    "endurance": 212,
+    "power": 212,
+    "shield": 162
+  },
+  "AUG_318_ABSORB": {
+    "endurance": 212,
+    "power": 212,
+    "absorb": 162
+  },
+  "AUG_318_DEFENSE": {
+    "endurance": 212,
+    "power": 212,
+    "defense": 162
+  },
+  "AUG_310_MASTERY": {
+    "mastery": 147,
+    "endurance": 193,
+    "power": 193
+  },
+  "AUG_310_CRITICAL": {
+    "endurance": 193,
+    "power": 193,
+    "critical": 147
+  },
+  "AUG_310_ALACRITY": {
+    "endurance": 193,
+    "power": 193,
+    "alacrity": 147
+  },
+  "AUG_310_ACCURACY": {
+    "endurance": 193,
+    "power": 193,
+    "accuracy": 147
+  },
+  "AUG_310_SHIELD": {
+    "endurance": 193,
+    "power": 193,
+    "shield": 147
+  },
+  "AUG_310_ABSORB": {
+    "endurance": 193,
+    "power": 193,
+    "absorb": 147
+  },
+  "AUG_310_DEFENSE": {
+    "endurance": 193,
+    "power": 193,
+    "defense": 147
+  },
+  "AUG_302_MASTERY": {
+    "mastery": 133,
+    "endurance": 175,
+    "power": 175
+  },
+  "AUG_302_CRITICAL": {
+    "endurance": 175,
+    "power": 175,
+    "critical": 133
+  },
+  "AUG_302_ALACRITY": {
+    "endurance": 175,
+    "power": 175,
+    "alacrity": 133
+  },
+  "AUG_302_ACCURACY": {
+    "endurance": 175,
+    "power": 175,
+    "accuracy": 133
+  },
+  "AUG_302_SHIELD": {
+    "endurance": 175,
+    "power": 175,
+    "shield": 133
+  },
+  "AUG_302_ABSORB": {
+    "endurance": 175,
+    "power": 175,
+    "absorb": 133
+  },
+  "AUG_302_DEFENSE": {
+    "endurance": 175,
+    "power": 175,
+    "defense": 133
+  },
+  "AUG_300_MASTERY": {
+    "mastery": 130,
+    "endurance": 171,
+    "power": 171
+  },
+  "AUG_300_CRITICAL": {
+    "endurance": 171,
+    "power": 171,
+    "critical": 130
+  },
+  "AUG_300_ALACRITY": {
+    "endurance": 171,
+    "power": 171,
+    "alacrity": 130
+  },
+  "AUG_300_ACCURACY": {
+    "endurance": 171,
+    "power": 171,
+    "accuracy": 130
+  },
+  "AUG_300_SHIELD": {
+    "endurance": 171,
+    "power": 171,
+    "shield": 130
+  },
+  "AUG_300_ABSORB": {
+    "endurance": 171,
+    "power": 171,
+    "absorb": 130
+  },
+  "AUG_300_DEFENSE": {
+    "endurance": 171,
+    "power": 171,
+    "defense": 130
+  },
+  "AUG_296_MASTERY": {
+    "mastery": 123,
+    "endurance": 163,
+    "power": 163
+  },
+  "AUG_296_CRITICAL": {
+    "endurance": 163,
+    "power": 163,
+    "critical": 123
+  },
+  "AUG_296_ALACRITY": {
+    "endurance": 163,
+    "power": 163,
+    "alacrity": 123
+  },
+  "AUG_296_ACCURACY": {
+    "endurance": 163,
+    "power": 163,
+    "accuracy": 123
+  },
+  "AUG_296_SHIELD": {
+    "endurance": 163,
+    "power": 163,
+    "shield": 123
+  },
+  "AUG_296_ABSORB": {
+    "endurance": 163,
+    "power": 163,
+    "absorb": 123
+  },
+  "AUG_296_DEFENSE": {
+    "endurance": 163,
+    "power": 163,
+    "defense": 123
+  }
+}

@@ -1,0 +1,20 @@
+enum GearSlot {
+  HEAD,
+  CHEST,
+  WRISTS,
+  HANDS,
+  WAIST,
+  LEGS,
+  FEET,
+  MAIN_HAND,
+  OFF_HAND,
+  EAR,
+  IMPLANT_1,
+  IMPLANT_2,
+  RELIC_1,
+  RELIC_2,
+}
+
+enum GearProfile { DPS, TANK }
+
+enum StatFocus { CRITICAL, ALACRITY, ACCURACY, SHIELD, ABSORB, NONE }

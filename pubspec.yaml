@@ -1,0 +1,57 @@
+name: dantiko_swtor_loadout_builder
+description: SWTOR loadout builder and stat calculator
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  window_manager: ^0.3.9
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  sqflite: ^2.4.2
+  sqflite_common_ffi: ^2.4.0+2
+  path: ^1.9.1
+  file_selector: ^1.1.0
+  file_picker: ^10.3.10
+  path_provider: ^2.1.5
+  crypto: ^3.0.7
+  package_info_plus: ^9.0.0
+  http: ^1.6.0
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  assets:
+    - assets/data/gear.json
+    - assets/data/augments.json
+    - assets/data/crystals.json
+    - assets/data/stims.json
+    - assets/ui/gear_bg.png
+    - assets/ui/stats_bg.png
+
+flutter_launcher_icons:
+  image_path: "assets/icon/app_icon.png"
+
+  android: true
+  ios: true
+  windows:
+    generate: true
+    image_path: "assets/icon/app_icon.png"
+
+  macos:
+    generate: true
+    image_path: "assets/icon/app_icon.png"
+
+

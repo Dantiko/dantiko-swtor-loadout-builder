@@ -1,0 +1,14 @@
+{
+  "STIM_MASTERY": {
+    "mastery": 264,
+    "power": 109
+  },
+  "STIM_ACCURACY": {
+    "critical": 109,
+    "accuracy": 264
+  },
+  "STIM_ENDURANCE": {
+    "endurance": 264,
+    "defense": 109
+  }
+}

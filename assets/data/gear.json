@@ -1,0 +1,2812 @@
+{
+  "GEAR_344_HEAD_DPS_CRITICAL": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "critical": 640
+  },
+  "GEAR_344_HEAD_DPS_ALACRITY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "alacrity": 640
+  },
+  "GEAR_344_HEAD_DPS_ACCURACY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "accuracy": 640
+  },
+  "GEAR_344_HEAD_TANK_SHIELD": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "shield": 609
+  },
+  "GEAR_344_HEAD_TANK_ABSORB": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "absorb": 609
+  },
+  "GEAR_342_HEAD_DPS_CRITICAL": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "critical": 627
+  },
+  "GEAR_342_HEAD_DPS_ALACRITY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "alacrity": 627
+  },
+  "GEAR_342_HEAD_DPS_ACCURACY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "accuracy": 627
+  },
+  "GEAR_342_HEAD_TANK_SHIELD": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "shield": 597
+  },
+  "GEAR_342_HEAD_TANK_ABSORB": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "absorb": 597
+  },
+  "GEAR_340_HEAD_DPS_CRITICAL": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "critical": 614
+  },
+  "GEAR_340_HEAD_DPS_ALACRITY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "alacrity": 614
+  },
+  "GEAR_340_HEAD_DPS_ACCURACY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "accuracy": 614
+  },
+  "GEAR_340_HEAD_TANK_SHIELD": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "shield": 585
+  },
+  "GEAR_340_HEAD_TANK_ABSORB": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "absorb": 585
+  },
+  "GEAR_338_HEAD_DPS_CRITICAL": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "critical": 602
+  },
+  "GEAR_338_HEAD_DPS_ALACRITY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "alacrity": 602
+  },
+  "GEAR_338_HEAD_DPS_ACCURACY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "accuracy": 602
+  },
+  "GEAR_338_HEAD_TANK_SHIELD": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "shield": 573
+  },
+  "GEAR_338_HEAD_TANK_ABSORB": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "absorb": 573
+  },
+  "GEAR_336_HEAD_DPS_CRITICAL": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "critical": 589
+  },
+  "GEAR_336_HEAD_DPS_ALACRITY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "alacrity": 589
+  },
+  "GEAR_336_HEAD_DPS_ACCURACY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "accuracy": 589
+  },
+  "GEAR_336_HEAD_TANK_SHIELD": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "shield": 561
+  },
+  "GEAR_336_HEAD_TANK_ABSORB": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "absorb": 561
+  },
+  "GEAR_334_HEAD_DPS_CRITICAL": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "critical": 577
+  },
+  "GEAR_334_HEAD_DPS_ALACRITY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "alacrity": 577
+  },
+  "GEAR_334_HEAD_DPS_ACCURACY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "accuracy": 577
+  },
+  "GEAR_334_HEAD_TANK_SHIELD": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "shield": 550
+  },
+  "GEAR_334_HEAD_TANK_ABSORB": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "absorb": 550
+  },
+  "GEAR_332_HEAD_DPS_CRITICAL": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "critical": 566
+  },
+  "GEAR_332_HEAD_DPS_ALACRITY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "alacrity": 566
+  },
+  "GEAR_332_HEAD_DPS_ACCURACY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "accuracy": 566
+  },
+  "GEAR_332_HEAD_TANK_SHIELD": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "shield": 539
+  },
+  "GEAR_332_HEAD_TANK_ABSORB": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "absorb": 539
+  },
+  "GEAR_330_HEAD_DPS_CRITICAL": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "critical": 554
+  },
+  "GEAR_330_HEAD_DPS_ALACRITY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "alacrity": 554
+  },
+  "GEAR_330_HEAD_DPS_ACCURACY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "accuracy": 554
+  },
+  "GEAR_330_HEAD_TANK_SHIELD": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "shield": 527
+  },
+  "GEAR_330_HEAD_TANK_ABSORB": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "absorb": 527
+  },
+  "GEAR_328_HEAD_DPS_CRITICAL": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "critical": 543
+  },
+  "GEAR_328_HEAD_DPS_ALACRITY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "alacrity": 543
+  },
+  "GEAR_328_HEAD_DPS_ACCURACY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "accuracy": 543
+  },
+  "GEAR_328_HEAD_TANK_SHIELD": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "shield": 517
+  },
+  "GEAR_328_HEAD_TANK_ABSORB": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "absorb": 517
+  },
+  "GEAR_326_HEAD_DPS_CRITICAL": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "critical": 532
+  },
+  "GEAR_326_HEAD_DPS_ALACRITY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "alacrity": 532
+  },
+  "GEAR_326_HEAD_DPS_ACCURACY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "accuracy": 532
+  },
+  "GEAR_326_HEAD_TANK_SHIELD": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "shield": 506
+  },
+  "GEAR_326_HEAD_TANK_ABSORB": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "absorb": 506
+  },
+  "GEAR_324_HEAD_DPS_CRITICAL": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "critical": 521
+  },
+  "GEAR_324_HEAD_DPS_ALACRITY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "alacrity": 521
+  },
+  "GEAR_324_HEAD_DPS_ACCURACY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "accuracy": 521
+  },
+  "GEAR_324_HEAD_TANK_SHIELD": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "shield": 495
+  },
+  "GEAR_324_HEAD_TANK_ABSORB": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "absorb": 495
+  },
+  "GEAR_344_CHEST_DPS_CRITICAL": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "critical": 640
+  },
+  "GEAR_344_CHEST_DPS_ALACRITY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "alacrity": 640
+  },
+  "GEAR_344_CHEST_DPS_ACCURACY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "accuracy": 640
+  },
+  "GEAR_344_CHEST_TANK_SHIELD": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "shield": 609
+  },
+  "GEAR_344_CHEST_TANK_ABSORB": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "absorb": 609
+  },
+  "GEAR_342_CHEST_DPS_CRITICAL": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "critical": 627
+  },
+  "GEAR_342_CHEST_DPS_ALACRITY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "alacrity": 627
+  },
+  "GEAR_342_CHEST_DPS_ACCURACY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "accuracy": 627
+  },
+  "GEAR_342_CHEST_TANK_SHIELD": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "shield": 597
+  },
+  "GEAR_342_CHEST_TANK_ABSORB": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "absorb": 597
+  },
+  "GEAR_340_CHEST_DPS_CRITICAL": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "critical": 614
+  },
+  "GEAR_340_CHEST_DPS_ALACRITY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "alacrity": 614
+  },
+  "GEAR_340_CHEST_DPS_ACCURACY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "accuracy": 614
+  },
+  "GEAR_340_CHEST_TANK_SHIELD": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "shield": 585
+  },
+  "GEAR_340_CHEST_TANK_ABSORB": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "absorb": 585
+  },
+  "GEAR_338_CHEST_DPS_CRITICAL": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "critical": 602
+  },
+  "GEAR_338_CHEST_DPS_ALACRITY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "alacrity": 602
+  },
+  "GEAR_338_CHEST_DPS_ACCURACY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "accuracy": 602
+  },
+  "GEAR_338_CHEST_TANK_SHIELD": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "shield": 573
+  },
+  "GEAR_338_CHEST_TANK_ABSORB": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "absorb": 573
+  },
+  "GEAR_336_CHEST_DPS_CRITICAL": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "critical": 589
+  },
+  "GEAR_336_CHEST_DPS_ALACRITY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "alacrity": 589
+  },
+  "GEAR_336_CHEST_DPS_ACCURACY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "accuracy": 589
+  },
+  "GEAR_336_CHEST_TANK_SHIELD": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "shield": 561
+  },
+  "GEAR_336_CHEST_TANK_ABSORB": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "absorb": 561
+  },
+  "GEAR_334_CHEST_DPS_CRITICAL": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "critical": 577
+  },
+  "GEAR_334_CHEST_DPS_ALACRITY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "alacrity": 577
+  },
+  "GEAR_334_CHEST_DPS_ACCURACY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "accuracy": 577
+  },
+  "GEAR_334_CHEST_TANK_SHIELD": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "shield": 550
+  },
+  "GEAR_334_CHEST_TANK_ABSORB": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "absorb": 550
+  },
+  "GEAR_332_CHEST_DPS_CRITICAL": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "critical": 566
+  },
+  "GEAR_332_CHEST_DPS_ALACRITY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "alacrity": 566
+  },
+  "GEAR_332_CHEST_DPS_ACCURACY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "accuracy": 566
+  },
+  "GEAR_332_CHEST_TANK_SHIELD": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "shield": 539
+  },
+  "GEAR_332_CHEST_TANK_ABSORB": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "absorb": 539
+  },
+  "GEAR_330_CHEST_DPS_CRITICAL": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "critical": 554
+  },
+  "GEAR_330_CHEST_DPS_ALACRITY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "alacrity": 554
+  },
+  "GEAR_330_CHEST_DPS_ACCURACY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "accuracy": 554
+  },
+  "GEAR_330_CHEST_TANK_SHIELD": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "shield": 527
+  },
+  "GEAR_330_CHEST_TANK_ABSORB": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "absorb": 527
+  },
+  "GEAR_328_CHEST_DPS_CRITICAL": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "critical": 543
+  },
+  "GEAR_328_CHEST_DPS_ALACRITY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "alacrity": 543
+  },
+  "GEAR_328_CHEST_DPS_ACCURACY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "accuracy": 543
+  },
+  "GEAR_328_CHEST_TANK_SHIELD": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "shield": 517
+  },
+  "GEAR_328_CHEST_TANK_ABSORB": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "absorb": 517
+  },
+  "GEAR_326_CHEST_DPS_CRITICAL": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "critical": 532
+  },
+  "GEAR_326_CHEST_DPS_ALACRITY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "alacrity": 532
+  },
+  "GEAR_326_CHEST_DPS_ACCURACY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "accuracy": 532
+  },
+  "GEAR_326_CHEST_TANK_SHIELD": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "shield": 506
+  },
+  "GEAR_326_CHEST_TANK_ABSORB": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "absorb": 506
+  },
+  "GEAR_324_CHEST_DPS_CRITICAL": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "critical": 521
+  },
+  "GEAR_324_CHEST_DPS_ALACRITY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "alacrity": 521
+  },
+  "GEAR_324_CHEST_DPS_ACCURACY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "accuracy": 521
+  },
+  "GEAR_324_CHEST_TANK_SHIELD": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "shield": 495
+  },
+  "GEAR_324_CHEST_TANK_ABSORB": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "absorb": 495
+  },
+  "GEAR_344_HANDS_DPS_CRITICAL": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "critical": 640
+  },
+  "GEAR_344_HANDS_DPS_ALACRITY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "alacrity": 640
+  },
+  "GEAR_344_HANDS_DPS_ACCURACY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "accuracy": 640
+  },
+  "GEAR_344_HANDS_TANK_SHIELD": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "shield": 609
+  },
+  "GEAR_344_HANDS_TANK_ABSORB": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "absorb": 609
+  },
+  "GEAR_342_HANDS_DPS_CRITICAL": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "critical": 627
+  },
+  "GEAR_342_HANDS_DPS_ALACRITY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "alacrity": 627
+  },
+  "GEAR_342_HANDS_DPS_ACCURACY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "accuracy": 627
+  },
+  "GEAR_342_HANDS_TANK_SHIELD": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "shield": 597
+  },
+  "GEAR_342_HANDS_TANK_ABSORB": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "absorb": 597
+  },
+  "GEAR_340_HANDS_DPS_CRITICAL": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "critical": 614
+  },
+  "GEAR_340_HANDS_DPS_ALACRITY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "alacrity": 614
+  },
+  "GEAR_340_HANDS_DPS_ACCURACY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "accuracy": 614
+  },
+  "GEAR_340_HANDS_TANK_SHIELD": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "shield": 585
+  },
+  "GEAR_340_HANDS_TANK_ABSORB": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "absorb": 585
+  },
+  "GEAR_338_HANDS_DPS_CRITICAL": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "critical": 602
+  },
+  "GEAR_338_HANDS_DPS_ALACRITY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "alacrity": 602
+  },
+  "GEAR_338_HANDS_DPS_ACCURACY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "accuracy": 602
+  },
+  "GEAR_338_HANDS_TANK_SHIELD": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "shield": 573
+  },
+  "GEAR_338_HANDS_TANK_ABSORB": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "absorb": 573
+  },
+  "GEAR_336_HANDS_DPS_CRITICAL": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "critical": 589
+  },
+  "GEAR_336_HANDS_DPS_ALACRITY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "alacrity": 589
+  },
+  "GEAR_336_HANDS_DPS_ACCURACY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "accuracy": 589
+  },
+  "GEAR_336_HANDS_TANK_SHIELD": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "shield": 561
+  },
+  "GEAR_336_HANDS_TANK_ABSORB": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "absorb": 561
+  },
+  "GEAR_334_HANDS_DPS_CRITICAL": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "critical": 577
+  },
+  "GEAR_334_HANDS_DPS_ALACRITY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "alacrity": 577
+  },
+  "GEAR_334_HANDS_DPS_ACCURACY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "accuracy": 577
+  },
+  "GEAR_334_HANDS_TANK_SHIELD": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "shield": 550
+  },
+  "GEAR_334_HANDS_TANK_ABSORB": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "absorb": 550
+  },
+  "GEAR_332_HANDS_DPS_CRITICAL": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "critical": 566
+  },
+  "GEAR_332_HANDS_DPS_ALACRITY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "alacrity": 566
+  },
+  "GEAR_332_HANDS_DPS_ACCURACY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "accuracy": 566
+  },
+  "GEAR_332_HANDS_TANK_SHIELD": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "shield": 539
+  },
+  "GEAR_332_HANDS_TANK_ABSORB": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "absorb": 539
+  },
+  "GEAR_330_HANDS_DPS_CRITICAL": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "critical": 554
+  },
+  "GEAR_330_HANDS_DPS_ALACRITY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "alacrity": 554
+  },
+  "GEAR_330_HANDS_DPS_ACCURACY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "accuracy": 554
+  },
+  "GEAR_330_HANDS_TANK_SHIELD": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "shield": 527
+  },
+  "GEAR_330_HANDS_TANK_ABSORB": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "absorb": 527
+  },
+  "GEAR_328_HANDS_DPS_CRITICAL": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "critical": 543
+  },
+  "GEAR_328_HANDS_DPS_ALACRITY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "alacrity": 543
+  },
+  "GEAR_328_HANDS_DPS_ACCURACY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "accuracy": 543
+  },
+  "GEAR_328_HANDS_TANK_SHIELD": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "shield": 517
+  },
+  "GEAR_328_HANDS_TANK_ABSORB": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "absorb": 517
+  },
+  "GEAR_326_HANDS_DPS_CRITICAL": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "critical": 532
+  },
+  "GEAR_326_HANDS_DPS_ALACRITY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "alacrity": 532
+  },
+  "GEAR_326_HANDS_DPS_ACCURACY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "accuracy": 532
+  },
+  "GEAR_326_HANDS_TANK_SHIELD": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "shield": 506
+  },
+  "GEAR_326_HANDS_TANK_ABSORB": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "absorb": 506
+  },
+  "GEAR_324_HANDS_DPS_CRITICAL": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "critical": 521
+  },
+  "GEAR_324_HANDS_DPS_ALACRITY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "alacrity": 521
+  },
+  "GEAR_324_HANDS_DPS_ACCURACY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "accuracy": 521
+  },
+  "GEAR_324_HANDS_TANK_SHIELD": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "shield": 495
+  },
+  "GEAR_324_HANDS_TANK_ABSORB": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "absorb": 495
+  },
+  "GEAR_344_LEGS_DPS_CRITICAL": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "critical": 640
+  },
+  "GEAR_344_LEGS_DPS_ALACRITY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "alacrity": 640
+  },
+  "GEAR_344_LEGS_DPS_ACCURACY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "accuracy": 640
+  },
+  "GEAR_344_LEGS_TANK_SHIELD": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "shield": 609
+  },
+  "GEAR_344_LEGS_TANK_ABSORB": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "absorb": 609
+  },
+  "GEAR_342_LEGS_DPS_CRITICAL": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "critical": 627
+  },
+  "GEAR_342_LEGS_DPS_ALACRITY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "alacrity": 627
+  },
+  "GEAR_342_LEGS_DPS_ACCURACY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "accuracy": 627
+  },
+  "GEAR_342_LEGS_TANK_SHIELD": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "shield": 597
+  },
+  "GEAR_342_LEGS_TANK_ABSORB": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "absorb": 597
+  },
+  "GEAR_340_LEGS_DPS_CRITICAL": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "critical": 614
+  },
+  "GEAR_340_LEGS_DPS_ALACRITY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "alacrity": 614
+  },
+  "GEAR_340_LEGS_DPS_ACCURACY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "accuracy": 614
+  },
+  "GEAR_340_LEGS_TANK_SHIELD": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "shield": 585
+  },
+  "GEAR_340_LEGS_TANK_ABSORB": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "absorb": 585
+  },
+  "GEAR_338_LEGS_DPS_CRITICAL": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "critical": 602
+  },
+  "GEAR_338_LEGS_DPS_ALACRITY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "alacrity": 602
+  },
+  "GEAR_338_LEGS_DPS_ACCURACY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "accuracy": 602
+  },
+  "GEAR_338_LEGS_TANK_SHIELD": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "shield": 573
+  },
+  "GEAR_338_LEGS_TANK_ABSORB": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "absorb": 573
+  },
+  "GEAR_336_LEGS_DPS_CRITICAL": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "critical": 589
+  },
+  "GEAR_336_LEGS_DPS_ALACRITY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "alacrity": 589
+  },
+  "GEAR_336_LEGS_DPS_ACCURACY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "accuracy": 589
+  },
+  "GEAR_336_LEGS_TANK_SHIELD": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "shield": 561
+  },
+  "GEAR_336_LEGS_TANK_ABSORB": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "absorb": 561
+  },
+  "GEAR_334_LEGS_DPS_CRITICAL": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "critical": 577
+  },
+  "GEAR_334_LEGS_DPS_ALACRITY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "alacrity": 577
+  },
+  "GEAR_334_LEGS_DPS_ACCURACY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "accuracy": 577
+  },
+  "GEAR_334_LEGS_TANK_SHIELD": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "shield": 550
+  },
+  "GEAR_334_LEGS_TANK_ABSORB": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "absorb": 550
+  },
+  "GEAR_332_LEGS_DPS_CRITICAL": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "critical": 566
+  },
+  "GEAR_332_LEGS_DPS_ALACRITY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "alacrity": 566
+  },
+  "GEAR_332_LEGS_DPS_ACCURACY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "accuracy": 566
+  },
+  "GEAR_332_LEGS_TANK_SHIELD": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "shield": 539
+  },
+  "GEAR_332_LEGS_TANK_ABSORB": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "absorb": 539
+  },
+  "GEAR_330_LEGS_DPS_CRITICAL": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "critical": 554
+  },
+  "GEAR_330_LEGS_DPS_ALACRITY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "alacrity": 554
+  },
+  "GEAR_330_LEGS_DPS_ACCURACY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "accuracy": 554
+  },
+  "GEAR_330_LEGS_TANK_SHIELD": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "shield": 527
+  },
+  "GEAR_330_LEGS_TANK_ABSORB": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "absorb": 527
+  },
+  "GEAR_328_LEGS_DPS_CRITICAL": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "critical": 543
+  },
+  "GEAR_328_LEGS_DPS_ALACRITY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "alacrity": 543
+  },
+  "GEAR_328_LEGS_DPS_ACCURACY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "accuracy": 543
+  },
+  "GEAR_328_LEGS_TANK_SHIELD": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "shield": 517
+  },
+  "GEAR_328_LEGS_TANK_ABSORB": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "absorb": 517
+  },
+  "GEAR_326_LEGS_DPS_CRITICAL": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "critical": 532
+  },
+  "GEAR_326_LEGS_DPS_ALACRITY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "alacrity": 532
+  },
+  "GEAR_326_LEGS_DPS_ACCURACY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "accuracy": 532
+  },
+  "GEAR_326_LEGS_TANK_SHIELD": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "shield": 506
+  },
+  "GEAR_326_LEGS_TANK_ABSORB": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "absorb": 506
+  },
+  "GEAR_324_LEGS_DPS_CRITICAL": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "critical": 521
+  },
+  "GEAR_324_LEGS_DPS_ALACRITY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "alacrity": 521
+  },
+  "GEAR_324_LEGS_DPS_ACCURACY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "accuracy": 521
+  },
+  "GEAR_324_LEGS_TANK_SHIELD": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "shield": 495
+  },
+  "GEAR_324_LEGS_TANK_ABSORB": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "absorb": 495
+  },
+  "GEAR_344_FEET_DPS_CRITICAL": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "critical": 640
+  },
+  "GEAR_344_FEET_DPS_ALACRITY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "alacrity": 640
+  },
+  "GEAR_344_FEET_DPS_ACCURACY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "accuracy": 640
+  },
+  "GEAR_344_FEET_TANK_SHIELD": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "shield": 609
+  },
+  "GEAR_344_FEET_TANK_ABSORB": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "absorb": 609
+  },
+  "GEAR_342_FEET_DPS_CRITICAL": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "critical": 627
+  },
+  "GEAR_342_FEET_DPS_ALACRITY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "alacrity": 627
+  },
+  "GEAR_342_FEET_DPS_ACCURACY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "accuracy": 627
+  },
+  "GEAR_342_FEET_TANK_SHIELD": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "shield": 597
+  },
+  "GEAR_342_FEET_TANK_ABSORB": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "absorb": 597
+  },
+  "GEAR_340_FEET_DPS_CRITICAL": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "critical": 614
+  },
+  "GEAR_340_FEET_DPS_ALACRITY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "alacrity": 614
+  },
+  "GEAR_340_FEET_DPS_ACCURACY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "accuracy": 614
+  },
+  "GEAR_340_FEET_TANK_SHIELD": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "shield": 585
+  },
+  "GEAR_340_FEET_TANK_ABSORB": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "absorb": 585
+  },
+  "GEAR_338_FEET_DPS_CRITICAL": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "critical": 602
+  },
+  "GEAR_338_FEET_DPS_ALACRITY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "alacrity": 602
+  },
+  "GEAR_338_FEET_DPS_ACCURACY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "accuracy": 602
+  },
+  "GEAR_338_FEET_TANK_SHIELD": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "shield": 573
+  },
+  "GEAR_338_FEET_TANK_ABSORB": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "absorb": 573
+  },
+  "GEAR_336_FEET_DPS_CRITICAL": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "critical": 589
+  },
+  "GEAR_336_FEET_DPS_ALACRITY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "alacrity": 589
+  },
+  "GEAR_336_FEET_DPS_ACCURACY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "accuracy": 589
+  },
+  "GEAR_336_FEET_TANK_SHIELD": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "shield": 561
+  },
+  "GEAR_336_FEET_TANK_ABSORB": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "absorb": 561
+  },
+  "GEAR_334_FEET_DPS_CRITICAL": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "critical": 577
+  },
+  "GEAR_334_FEET_DPS_ALACRITY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "alacrity": 577
+  },
+  "GEAR_334_FEET_DPS_ACCURACY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "accuracy": 577
+  },
+  "GEAR_334_FEET_TANK_SHIELD": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "shield": 550
+  },
+  "GEAR_334_FEET_TANK_ABSORB": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "absorb": 550
+  },
+  "GEAR_332_FEET_DPS_CRITICAL": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "critical": 566
+  },
+  "GEAR_332_FEET_DPS_ALACRITY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "alacrity": 566
+  },
+  "GEAR_332_FEET_DPS_ACCURACY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "accuracy": 566
+  },
+  "GEAR_332_FEET_TANK_SHIELD": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "shield": 539
+  },
+  "GEAR_332_FEET_TANK_ABSORB": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "absorb": 539
+  },
+  "GEAR_330_FEET_DPS_CRITICAL": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "critical": 554
+  },
+  "GEAR_330_FEET_DPS_ALACRITY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "alacrity": 554
+  },
+  "GEAR_330_FEET_DPS_ACCURACY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "accuracy": 554
+  },
+  "GEAR_330_FEET_TANK_SHIELD": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "shield": 527
+  },
+  "GEAR_330_FEET_TANK_ABSORB": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "absorb": 527
+  },
+  "GEAR_328_FEET_DPS_CRITICAL": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "critical": 543
+  },
+  "GEAR_328_FEET_DPS_ALACRITY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "alacrity": 543
+  },
+  "GEAR_328_FEET_DPS_ACCURACY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "accuracy": 543
+  },
+  "GEAR_328_FEET_TANK_SHIELD": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "shield": 517
+  },
+  "GEAR_328_FEET_TANK_ABSORB": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "absorb": 517
+  },
+  "GEAR_326_FEET_DPS_CRITICAL": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "critical": 532
+  },
+  "GEAR_326_FEET_DPS_ALACRITY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "alacrity": 532
+  },
+  "GEAR_326_FEET_DPS_ACCURACY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "accuracy": 532
+  },
+  "GEAR_326_FEET_TANK_SHIELD": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "shield": 506
+  },
+  "GEAR_326_FEET_TANK_ABSORB": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "absorb": 506
+  },
+  "GEAR_324_FEET_DPS_CRITICAL": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "critical": 521
+  },
+  "GEAR_324_FEET_DPS_ALACRITY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "alacrity": 521
+  },
+  "GEAR_324_FEET_DPS_ACCURACY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "accuracy": 521
+  },
+  "GEAR_324_FEET_TANK_SHIELD": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "shield": 495
+  },
+  "GEAR_324_FEET_TANK_ABSORB": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "absorb": 495
+  },
+  "GEAR_344_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "critical": 640
+  },
+  "GEAR_344_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "shield": 609
+  },
+  "GEAR_342_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "critical": 627
+  },
+  "GEAR_342_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "shield": 597
+  },
+  "GEAR_340_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "critical": 614
+  },
+  "GEAR_340_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "shield": 585
+  },
+  "GEAR_338_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "critical": 602
+  },
+  "GEAR_338_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "shield": 573
+  },
+  "GEAR_336_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "critical": 589
+  },
+  "GEAR_336_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "shield": 561
+  },
+  "GEAR_334_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "critical": 577
+  },
+  "GEAR_334_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "shield": 550
+  },
+  "GEAR_332_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "critical": 566
+  },
+  "GEAR_332_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "shield": 539
+  },
+  "GEAR_330_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "critical": 554
+  },
+  "GEAR_330_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "shield": 527
+  },
+  "GEAR_328_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "critical": 543
+  },
+  "GEAR_328_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "shield": 517
+  },
+  "GEAR_326_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "critical": 532
+  },
+  "GEAR_326_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "shield": 506
+  },
+  "GEAR_324_MAIN_HAND_DPS_CRITICAL": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "critical": 521
+  },
+  "GEAR_324_MAIN_HAND_TANK_SHIELD": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "shield": 495
+  },
+  "GEAR_344_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "alacrity": 640
+  },
+  "GEAR_344_OFF_HAND_TANK_ABSORB": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "absorb": 609
+  },
+  "GEAR_342_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "alacrity": 627
+  },
+  "GEAR_342_OFF_HAND_TANK_ABSORB": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "absorb": 597
+  },
+  "GEAR_340_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "alacrity": 614
+  },
+  "GEAR_340_OFF_HAND_TANK_ABSORB": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "absorb": 585
+  },
+  "GEAR_338_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "alacrity": 602
+  },
+  "GEAR_338_OFF_HAND_TANK_ABSORB": {
+    "mastery": 1145,
+    "endurance": 1674,
+    "defense": 685,
+    "absorb": 573
+  },
+  "GEAR_336_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "alacrity": 589
+  },
+  "GEAR_336_OFF_HAND_TANK_ABSORB": {
+    "mastery": 1121,
+    "endurance": 1639,
+    "defense": 670,
+    "absorb": 561
+  },
+  "GEAR_334_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "alacrity": 577
+  },
+  "GEAR_334_OFF_HAND_TANK_ABSORB": {
+    "mastery": 1098,
+    "endurance": 1605,
+    "defense": 655,
+    "absorb": 550
+  },
+  "GEAR_332_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "alacrity": 566
+  },
+  "GEAR_332_OFF_HAND_TANK_ABSORB": {
+    "mastery": 1076,
+    "endurance": 1573,
+    "defense": 641,
+    "absorb": 539
+  },
+  "GEAR_330_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "alacrity": 554
+  },
+  "GEAR_330_OFF_HAND_TANK_ABSORB": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "absorb": 527
+  },
+  "GEAR_328_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "alacrity": 543
+  },
+  "GEAR_328_OFF_HAND_TANK_ABSORB": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "absorb": 517
+  },
+  "GEAR_326_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "alacrity": 532
+  },
+  "GEAR_326_OFF_HAND_TANK_ABSORB": {
+    "mastery": 1011,
+    "endurance": 1477,
+    "defense": 600,
+    "absorb": 506
+  },
+  "GEAR_324_OFF_HAND_DPS_ALACRITY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "alacrity": 521
+  },
+  "GEAR_324_OFF_HAND_TANK_ABSORB": {
+    "mastery": 990,
+    "endurance": 1447,
+    "defense": 587,
+    "absorb": 495
+  },
+  "GEAR_344_EAR_DPS_CRITICAL": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "critical": 640
+  },
+  "GEAR_344_EAR_DPS_ALACRITY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "alacrity": 640
+  },
+  "GEAR_344_EAR_DPS_ACCURACY": {
+    "mastery": 1275,
+    "endurance": 1512,
+    "power": 981,
+    "accuracy": 640
+  },
+  "GEAR_344_EAR_TANK_SHIELD": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "shield": 609
+  },
+  "GEAR_344_EAR_TANK_ABSORB": {
+    "mastery": 1149,
+    "endurance": 1918,
+    "defense": 653,
+    "absorb": 609
+  },
+  "GEAR_342_EAR_DPS_CRITICAL": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "critical": 627
+  },
+  "GEAR_342_EAR_DPS_ALACRITY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "alacrity": 627
+  },
+  "GEAR_342_EAR_DPS_ACCURACY": {
+    "mastery": 1249,
+    "endurance": 1481,
+    "power": 961,
+    "accuracy": 627
+  },
+  "GEAR_342_EAR_TANK_SHIELD": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "shield": 597
+  },
+  "GEAR_342_EAR_TANK_ABSORB": {
+    "mastery": 1126,
+    "endurance": 1879,
+    "defense": 638,
+    "absorb": 597
+  },
+  "GEAR_340_EAR_DPS_CRITICAL": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "critical": 614
+  },
+  "GEAR_340_EAR_DPS_ALACRITY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "alacrity": 614
+  },
+  "GEAR_340_EAR_DPS_ACCURACY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "accuracy": 614
+  },
+  "GEAR_340_EAR_TANK_SHIELD": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "shield": 585
+  },
+  "GEAR_340_EAR_TANK_ABSORB": {
+    "mastery": 1102,
+    "endurance": 1841,
+    "defense": 624,
+    "absorb": 585
+  },
+  "GEAR_338_EAR_DPS_CRITICAL": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "critical": 602
+  },
+  "GEAR_338_EAR_DPS_ALACRITY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "alacrity": 602
+  },
+  "GEAR_338_EAR_DPS_ACCURACY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "accuracy": 602
+  },
+  "GEAR_338_EAR_TANK_SHIELD": {
+    "mastery": 1231,
+    "endurance": 1709,
+    "defense": 525,
+    "shield": 573
+  },
+  "GEAR_338_EAR_TANK_ABSORB": {
+    "mastery": 1231,
+    "endurance": 1709,
+    "defense": 525,
+    "absorb": 573
+  },
+  "GEAR_336_EAR_DPS_CRITICAL": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "critical": 589
+  },
+  "GEAR_336_EAR_DPS_ALACRITY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "alacrity": 589
+  },
+  "GEAR_336_EAR_DPS_ACCURACY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "accuracy": 589
+  },
+  "GEAR_336_EAR_TANK_SHIELD": {
+    "mastery": 1206,
+    "endurance": 1674,
+    "defense": 513,
+    "shield": 561
+  },
+  "GEAR_336_EAR_TANK_ABSORB": {
+    "mastery": 1206,
+    "endurance": 1674,
+    "defense": 513,
+    "absorb": 561
+  },
+  "GEAR_334_EAR_DPS_CRITICAL": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "critical": 577
+  },
+  "GEAR_334_EAR_DPS_ALACRITY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "alacrity": 577
+  },
+  "GEAR_334_EAR_DPS_ACCURACY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "accuracy": 577
+  },
+  "GEAR_334_EAR_TANK_SHIELD": {
+    "mastery": 1181,
+    "endurance": 1639,
+    "defense": 501,
+    "shield": 550
+  },
+  "GEAR_334_EAR_TANK_ABSORB": {
+    "mastery": 1181,
+    "endurance": 1639,
+    "defense": 501,
+    "absorb": 550
+  },
+  "GEAR_332_EAR_DPS_CRITICAL": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "critical": 566
+  },
+  "GEAR_332_EAR_DPS_ALACRITY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "alacrity": 566
+  },
+  "GEAR_332_EAR_DPS_ACCURACY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "accuracy": 566
+  },
+  "GEAR_332_EAR_TANK_SHIELD": {
+    "mastery": 1158,
+    "endurance": 1607,
+    "defense": 490,
+    "shield": 539
+  },
+  "GEAR_332_EAR_TANK_ABSORB": {
+    "mastery": 1158,
+    "endurance": 1607,
+    "defense": 490,
+    "absorb": 539
+  },
+  "GEAR_330_EAR_DPS_CRITICAL": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "critical": 554
+  },
+  "GEAR_330_EAR_DPS_ALACRITY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "alacrity": 554
+  },
+  "GEAR_330_EAR_DPS_ACCURACY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "accuracy": 554
+  },
+  "GEAR_330_EAR_TANK_SHIELD": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "shield": 527
+  },
+  "GEAR_330_EAR_TANK_ABSORB": {
+    "mastery": 993,
+    "endurance": 1661,
+    "defense": 559,
+    "absorb": 527
+  },
+  "GEAR_328_EAR_DPS_CRITICAL": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "critical": 543
+  },
+  "GEAR_328_EAR_DPS_ALACRITY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "alacrity": 543
+  },
+  "GEAR_328_EAR_DPS_ACCURACY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "accuracy": 543
+  },
+  "GEAR_328_EAR_TANK_SHIELD": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "shield": 517
+  },
+  "GEAR_328_EAR_TANK_ABSORB": {
+    "mastery": 973,
+    "endurance": 1628,
+    "defense": 546,
+    "absorb": 517
+  },
+  "GEAR_326_EAR_DPS_CRITICAL": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "critical": 532
+  },
+  "GEAR_326_EAR_DPS_ALACRITY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "alacrity": 532
+  },
+  "GEAR_326_EAR_DPS_ACCURACY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "accuracy": 532
+  },
+  "GEAR_326_EAR_TANK_SHIELD": {
+    "mastery": 1088,
+    "endurance": 1509,
+    "defense": 457,
+    "shield": 506
+  },
+  "GEAR_326_EAR_TANK_ABSORB": {
+    "mastery": 1088,
+    "endurance": 1509,
+    "defense": 457,
+    "absorb": 506
+  },
+  "GEAR_324_EAR_DPS_CRITICAL": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "critical": 521
+  },
+  "GEAR_324_EAR_DPS_ALACRITY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "alacrity": 521
+  },
+  "GEAR_324_EAR_DPS_ACCURACY": {
+    "mastery": 1037,
+    "endurance": 1224,
+    "power": 793,
+    "accuracy": 521
+  },
+  "GEAR_324_EAR_TANK_SHIELD": {
+    "mastery": 1066,
+    "endurance": 1478,
+    "defense": 447,
+    "shield": 495
+  },
+  "GEAR_324_EAR_TANK_ABSORB": {
+    "mastery": 1066,
+    "endurance": 1478,
+    "defense": 447,
+    "absorb": 495
+  },
+  "GEAR_340_IMPLANT_DPS_CRITICAL": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "critical": 614
+  },
+  "GEAR_340_IMPLANT_DPS_ALACRITY": {
+    "mastery": 1223,
+    "endurance": 1450,
+    "power": 940,
+    "alacrity": 614
+  },
+  "GEAR_340_IMPLANT_TANK_SHIELD": {
+    "mastery": 1256,
+    "endurance": 1744,
+    "defense": 536,
+    "shield": 585
+  },
+  "GEAR_340_IMPLANT_TANK_ABSORB": {
+    "mastery": 1256,
+    "endurance": 1744,
+    "defense": 536,
+    "absorb": 585
+  },
+  "GEAR_338_IMPLANT_DPS_CRITICAL": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "critical": 602
+  },
+  "GEAR_338_IMPLANT_DPS_ALACRITY": {
+    "mastery": 1199,
+    "endurance": 1421,
+    "power": 921,
+    "alacrity": 602
+  },
+  "GEAR_338_IMPLANT_TANK_SHIELD": {
+    "mastery": 1231,
+    "endurance": 1709,
+    "defense": 525,
+    "shield": 573
+  },
+  "GEAR_338_IMPLANT_TANK_ABSORB": {
+    "mastery": 1231,
+    "endurance": 1709,
+    "defense": 525,
+    "absorb": 573
+  },
+  "GEAR_336_IMPLANT_DPS_CRITICAL": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "critical": 589
+  },
+  "GEAR_336_IMPLANT_DPS_ALACRITY": {
+    "mastery": 1175,
+    "endurance": 1390,
+    "power": 901,
+    "alacrity": 589
+  },
+  "GEAR_336_IMPLANT_TANK_SHIELD": {
+    "mastery": 1206,
+    "endurance": 1674,
+    "defense": 513,
+    "shield": 561
+  },
+  "GEAR_336_IMPLANT_TANK_ABSORB": {
+    "mastery": 1206,
+    "endurance": 1674,
+    "defense": 513,
+    "absorb": 561
+  },
+  "GEAR_334_IMPLANT_DPS_CRITICAL": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "critical": 577
+  },
+  "GEAR_334_IMPLANT_DPS_ALACRITY": {
+    "mastery": 1151,
+    "endurance": 1362,
+    "power": 882,
+    "alacrity": 577
+  },
+  "GEAR_334_IMPLANT_TANK_SHIELD": {
+    "mastery": 1181,
+    "endurance": 1639,
+    "defense": 501,
+    "shield": 550
+  },
+  "GEAR_334_IMPLANT_TANK_ABSORB": {
+    "mastery": 1181,
+    "endurance": 1639,
+    "defense": 501,
+    "absorb": 550
+  },
+  "GEAR_332_IMPLANT_DPS_CRITICAL": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "critical": 566
+  },
+  "GEAR_332_IMPLANT_DPS_ALACRITY": {
+    "mastery": 1127,
+    "endurance": 1333,
+    "power": 864,
+    "alacrity": 566
+  },
+  "GEAR_332_IMPLANT_TANK_SHIELD": {
+    "mastery": 1158,
+    "endurance": 1607,
+    "defense": 490,
+    "shield": 539
+  },
+  "GEAR_332_IMPLANT_TANK_ABSORB": {
+    "mastery": 1158,
+    "endurance": 1607,
+    "defense": 490,
+    "absorb": 539
+  },
+  "GEAR_330_IMPLANT_DPS_CRITICAL": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "critical": 554
+  },
+  "GEAR_330_IMPLANT_DPS_ALACRITY": {
+    "mastery": 1104,
+    "endurance": 1304,
+    "power": 845,
+    "alacrity": 554
+  },
+  "GEAR_330_IMPLANT_TANK_SHIELD": {
+    "mastery": 1134,
+    "endurance": 1573,
+    "defense": 479,
+    "shield": 527
+  },
+  "GEAR_330_IMPLANT_TANK_ABSORB": {
+    "mastery": 1134,
+    "endurance": 1573,
+    "defense": 479,
+    "absorb": 527
+  },
+  "GEAR_328_IMPLANT_DPS_CRITICAL": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "critical": 543
+  },
+  "GEAR_328_IMPLANT_DPS_ALACRITY": {
+    "mastery": 1081,
+    "endurance": 1278,
+    "power": 828,
+    "alacrity": 543
+  },
+  "GEAR_328_IMPLANT_TANK_SHIELD": {
+    "mastery": 1111,
+    "endurance": 1541,
+    "defense": 467,
+    "shield": 517
+  },
+  "GEAR_328_IMPLANT_TANK_ABSORB": {
+    "mastery": 1111,
+    "endurance": 1541,
+    "defense": 467,
+    "absorb": 517
+  },
+  "GEAR_326_IMPLANT_DPS_CRITICAL": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "critical": 532
+  },
+  "GEAR_326_IMPLANT_DPS_ALACRITY": {
+    "mastery": 1059,
+    "endurance": 1250,
+    "power": 810,
+    "alacrity": 532
+  },
+  "GEAR_326_IMPLANT_TANK_SHIELD": {
+    "mastery": 1088,
+    "endurance": 1509,
+    "defense": 457,
+    "shield": 506
+  },
+  "GEAR_326_IMPLANT_TANK_ABSORB": {
+    "mastery": 1088,
+    "endurance": 1509,
+    "defense": 457,
+    "absorb": 506
+  },
+  "GEAR_344_WRISTS_DPS_NONE": {
+    "mastery": 1275,
+    "endurance": 1081,
+    "power": 509
+  },
+  "GEAR_344_WRISTS_TANK_NONE": {
+    "mastery": 1149,
+    "endurance": 1278,
+    "defense": 431
+  },
+  "GEAR_342_WRISTS_DPS_NONE": {
+    "mastery": 1249,
+    "endurance": 1059,
+    "power": 499
+  },
+  "GEAR_342_WRISTS_TANK_NONE": {
+    "mastery": 1126,
+    "endurance": 1252,
+    "defense": 422
+  },
+  "GEAR_340_WRISTS_DPS_NONE": {
+    "mastery": 1223,
+    "endurance": 1037,
+    "power": 488
+  },
+  "GEAR_340_WRISTS_TANK_NONE": {
+    "mastery": 1102,
+    "endurance": 1227,
+    "defense": 413
+  },
+  "GEAR_338_WRISTS_DPS_NONE": {
+    "mastery": 1199,
+    "endurance": 1016,
+    "power": 478
+  },
+  "GEAR_338_WRISTS_TANK_NONE": {
+    "mastery": 1145,
+    "endurance": 1072,
+    "defense": 478
+  },
+  "GEAR_336_WRISTS_DPS_NONE": {
+    "mastery": 1175,
+    "endurance": 994,
+    "power": 468
+  },
+  "GEAR_336_WRISTS_TANK_NONE": {
+    "mastery": 1121,
+    "endurance": 1050,
+    "defense": 468
+  },
+  "GEAR_334_WRISTS_DPS_NONE": {
+    "mastery": 1151,
+    "endurance": 974,
+    "power": 458
+  },
+  "GEAR_334_WRISTS_TANK_NONE": {
+    "mastery": 1098,
+    "endurance": 1028,
+    "defense": 458
+  },
+  "GEAR_332_WRISTS_DPS_NONE": {
+    "mastery": 1127,
+    "endurance": 954,
+    "power": 449
+  },
+  "GEAR_332_WRISTS_TANK_NONE": {
+    "mastery": 1076,
+    "endurance": 1007,
+    "defense": 449
+  },
+  "GEAR_330_WRISTS_DPS_NONE": {
+    "mastery": 1104,
+    "endurance": 933,
+    "power": 439
+  },
+  "GEAR_330_WRISTS_TANK_NONE": {
+    "mastery": 993,
+    "endurance": 1107,
+    "defense": 371
+  },
+  "GEAR_328_WRISTS_DPS_NONE": {
+    "mastery": 1081,
+    "endurance": 915,
+    "power": 430
+  },
+  "GEAR_328_WRISTS_TANK_NONE": {
+    "mastery": 973,
+    "endurance": 1085,
+    "defense": 363
+  },
+  "GEAR_326_WRISTS_DPS_NONE": {
+    "mastery": 1059,
+    "endurance": 895,
+    "power": 421
+  },
+  "GEAR_326_WRISTS_TANK_NONE": {
+    "mastery": 1011,
+    "endurance": 945,
+    "defense": 421
+  },
+  "GEAR_324_WRISTS_DPS_NONE": {
+    "mastery": 1037,
+    "endurance": 876,
+    "power": 412
+  },
+  "GEAR_324_WRISTS_TANK_NONE": {
+    "mastery": 990,
+    "endurance": 926,
+    "defense": 412
+  },
+  "GEAR_344_WAIST_DPS_NONE": {
+    "mastery": 1275,
+    "endurance": 1081,
+    "power": 509
+  },
+  "GEAR_344_WAIST_TANK_NONE": {
+    "mastery": 1149,
+    "endurance": 1278,
+    "defense": 431
+  },
+  "GEAR_342_WAIST_DPS_NONE": {
+    "mastery": 1249,
+    "endurance": 1059,
+    "power": 499
+  },
+  "GEAR_342_WAIST_TANK_NONE": {
+    "mastery": 1126,
+    "endurance": 1252,
+    "defense": 422
+  },
+  "GEAR_340_WAIST_DPS_NONE": {
+    "mastery": 1223,
+    "endurance": 1037,
+    "power": 488
+  },
+  "GEAR_340_WAIST_TANK_NONE": {
+    "mastery": 1102,
+    "endurance": 1227,
+    "defense": 413
+  },
+  "GEAR_338_WAIST_DPS_NONE": {
+    "mastery": 1199,
+    "endurance": 1016,
+    "power": 478
+  },
+  "GEAR_338_WAIST_TANK_NONE": {
+    "mastery": 1145,
+    "endurance": 1072,
+    "defense": 478
+  },
+  "GEAR_336_WAIST_DPS_NONE": {
+    "mastery": 1175,
+    "endurance": 994,
+    "power": 468
+  },
+  "GEAR_336_WAIST_TANK_NONE": {
+    "mastery": 1121,
+    "endurance": 1050,
+    "defense": 468
+  },
+  "GEAR_334_WAIST_DPS_NONE": {
+    "mastery": 1151,
+    "endurance": 974,
+    "power": 458
+  },
+  "GEAR_334_WAIST_TANK_NONE": {
+    "mastery": 1098,
+    "endurance": 1028,
+    "defense": 458
+  },
+  "GEAR_332_WAIST_DPS_NONE": {
+    "mastery": 1127,
+    "endurance": 954,
+    "power": 449
+  },
+  "GEAR_332_WAIST_TANK_NONE": {
+    "mastery": 1076,
+    "endurance": 1007,
+    "defense": 449
+  },
+  "GEAR_330_WAIST_DPS_NONE": {
+    "mastery": 1104,
+    "endurance": 933,
+    "power": 439
+  },
+  "GEAR_330_WAIST_TANK_NONE": {
+    "mastery": 993,
+    "endurance": 1107,
+    "defense": 371
+  },
+  "GEAR_328_WAIST_DPS_NONE": {
+    "mastery": 1081,
+    "endurance": 915,
+    "power": 430
+  },
+  "GEAR_328_WAIST_TANK_NONE": {
+    "mastery": 973,
+    "endurance": 1085,
+    "defense": 363
+  },
+  "GEAR_326_WAIST_DPS_NONE": {
+    "mastery": 1059,
+    "endurance": 895,
+    "power": 421
+  },
+  "GEAR_326_WAIST_TANK_NONE": {
+    "mastery": 1011,
+    "endurance": 945,
+    "defense": 421
+  },
+  "GEAR_324_WAIST_DPS_NONE": {
+    "mastery": 1037,
+    "endurance": 876,
+    "power": 412
+  },
+  "GEAR_324_WAIST_TANK_NONE": {
+    "mastery": 990,
+    "endurance": 926,
+    "defense": 412
+  },
+  "GEAR_344_RELIC_DPS_NONE": {
+    "endurance": 750,
+    "power": 340
+  },
+  "GEAR_344_RELIC_TANK_ABSORB": {
+    "mastery": 750,
+    "defense": 340,
+    "absorb": 1055
+  },
+  "GEAR_344_RELIC_TANK_SHIELD": {
+    "mastery": 750,
+    "defense": 340,
+    "shield": 1055
+  },
+  "GEAR_342_RELIC_DPS_NONE": {
+    "endurance": 735,
+    "power": 332
+  },
+  "GEAR_342_RELIC_TANK_ABSORB": {
+    "mastery": 735,
+    "defense": 332,
+    "absorb": 1035
+  },
+  "GEAR_342_RELIC_TANK_SHIELD": {
+    "mastery": 735,
+    "defense": 332,
+    "shield": 1035
+  },
+  "GEAR_340_RELIC_DPS_NONE": {
+    "endurance": 721,
+    "power": 325
+  },
+  "GEAR_340_RELIC_TANK_ABSORB": {
+    "mastery": 721,
+    "defense": 325,
+    "absorb": 1015
+  },
+  "GEAR_340_RELIC_TANK_SHIELD": {
+    "mastery": 721,
+    "defense": 325,
+    "shield": 1015
+  },
+  "GEAR_338_RELIC_DPS_NONE": {
+    "endurance": 730,
+    "power": 267
+  },
+  "GEAR_338_RELIC_TANK_ABSORB": {
+    "mastery": 730,
+    "defense": 267,
+    "absorb": 995
+  },
+  "GEAR_338_RELIC_TANK_SHIELD": {
+    "mastery": 730,
+    "defense": 267,
+    "shield": 995
+  },
+  "GEAR_336_RELIC_DPS_NONE": {
+    "endurance": 716,
+    "power": 261
+  },
+  "GEAR_336_RELIC_TANK_ABSORB": {
+    "mastery": 716,
+    "defense": 261,
+    "absorb": 976
+  },
+  "GEAR_336_RELIC_TANK_SHIELD": {
+    "mastery": 716,
+    "defense": 261,
+    "shield": 976
+  },
+  "GEAR_334_RELIC_DPS_NONE": {
+    "endurance": 701,
+    "power": 255
+  },
+  "GEAR_334_RELIC_TANK_ABSORB": {
+    "mastery": 701,
+    "defense": 255,
+    "absorb": 957
+  },
+  "GEAR_334_RELIC_TANK_SHIELD": {
+    "mastery": 701,
+    "defense": 255,
+    "SHIELD": 957
+  },
+  "GEAR_332_RELIC_DPS_NONE": {
+    "endurance": 687,
+    "power": 249
+  },
+  "GEAR_332_RELIC_TANK_ABSORB": {
+    "mastery": 687,
+    "defense": 249,
+    "absorb": 938
+  },
+  "GEAR_332_RELIC_TANK_SHIELD": {
+    "mastery": 687,
+    "defense": 249,
+    "shield": 938
+  },
+  "GEAR_330_RELIC_DPS_NONE": {
+    "endurance": 673,
+    "power": 243
+  },
+  "GEAR_330_RELIC_TANK_ABSORB": {
+    "mastery": 673,
+    "defense": 243,
+    "absorb": 919
+  },
+  "GEAR_330_RELIC_TANK_SHIELD": {
+    "mastery": 673,
+    "defense": 243,
+    "shield": 919
+  },
+  "GEAR_328_RELIC_DPS_NONE": {
+    "endurance": 660,
+    "power": 238
+  },
+  "GEAR_328_RELIC_TANK_ABSORB": {
+    "mastery": 660,
+    "defense": 238,
+    "absorb": 901
+  },
+  "GEAR_328_RELIC_TANK_SHIELD": {
+    "mastery": 660,
+    "defense": 238,
+    "shield": 901
+  },
+  "GEAR_326_RELIC_DPS_NONE": {
+    "endurance": 647,
+    "power": 232
+  },
+  "GEAR_326_RELIC_TANK_ABSORB": {
+    "mastery": 647,
+    "defense": 232,
+    "absorb": 884
+  },
+  "GEAR_326_RELIC_TANK_SHIELD": {
+    "mastery": 647,
+    "defense": 232,
+    "shield": 884
+  },
+  "GEAR_324_RELIC_DPS_NONE": {
+    "endurance": 634,
+    "power": 227
+  },
+  "GEAR_324_RELIC_TANK_ABSORB": {
+    "mastery": 634,
+    "defense": 227,
+    "absorb": 866
+  },
+  "GEAR_324_RELIC_TANK_SHIELD": {
+    "mastery": 634,
+    "defense": 227,
+    "shield": 866
+  }
+}

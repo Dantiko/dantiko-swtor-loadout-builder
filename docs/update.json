@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.0.2",
-  "installerUrl": "https://github.com/Dantiko/dantiko-swtor-loadout-builder/releases/download/v1.0.2/DantikoLB_Setup_1.0.2.exe",
+  "latestVersion": "1.0.3",
+  "installerUrl": "https://github.com/Dantiko/dantiko-swtor-loadout-builder/releases/download/v1.0.3/DantikoLB_Setup_1.0.3.exe",
   "notes": [
-    "- fixed the update checker URL to point to the correct location"
+    "- fixed the initialization of the DB hopefully for the last time"
   ]
 }

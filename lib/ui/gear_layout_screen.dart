@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../domain/slot_policy.dart';
 import '../models/stat_bundle.dart';
 import '../services/asset_repository.dart';

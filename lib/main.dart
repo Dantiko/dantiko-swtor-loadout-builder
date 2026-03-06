@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 import 'services/asset_repository.dart';
 import 'ui/gear_layout_screen.dart';
 import 'package:window_manager/window_manager.dart';
@@ -13,8 +14,17 @@ void main() async {
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
-  }
 
+    final appData = await getApplicationSupportDirectory();
+    final dbDir = Directory(join(appData.path, 'DantikoLB'));
+
+    if (!await dbDir.exists()) {
+      await dbDir.create(recursive: true);
+    }
+
+    databaseFactoryFfi.setDatabasesPath(dbDir.path);
+  }
+  
   await windowManager.ensureInitialized();
 
   WindowOptions windowOptions = const WindowOptions(

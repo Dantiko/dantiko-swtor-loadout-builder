@@ -5,7 +5,7 @@
 #define MyAppName "Dantiko's SWTOR Loadout Builder"
 #define MyAppExeName "DantikoLB.exe"
 #define MyAppPublisher "Dantiko"
-#define MyAppVersion "1.0.3"
+#define MyAppVersion "1.0.4"
 
 ; Path to your Flutter Windows release output
 #define BuildDir "build\windows\x64\runner\Release"

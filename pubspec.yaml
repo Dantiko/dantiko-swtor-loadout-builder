@@ -1,4 +1,4 @@
-name: dantiko_swtor_loadout_builder
+name: dantiko_lb
 description: SWTOR loadout builder and stat calculator
 
 publish_to: 'none' 

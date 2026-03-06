@@ -12,7 +12,7 @@ import 'package:file_selector/file_selector.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../services/update_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:package_info_plus/package_info_plus.dart';
 import '../data/loadout_transfer.dart';
 
 // Turn on only while tuning anchors
@@ -2261,6 +2261,10 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
   }
 
   static const String _dismissedUpdateVersionKey = 'dismissed_update_version';
+  static const String _lastUpdateCheckTimeKey = 'last_update_check_time';
+  static const String _lastKnownLatestVersionKey = 'last_known_latest_version';
+  static const String _lastKnownInstallerUrlKey = 'last_known_installer_url';
+  static const String _lastKnownNotesKey = 'last_known_notes';
 
   Future<void> _checkForUpdates({bool manual = false}) async {
     final checker = UpdateChecker(
@@ -2268,10 +2272,57 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
     );
 
     try {
-      final info = await checker.check();
-      if (info == null) return;
+      final prefs = await SharedPreferences.getInstance();
 
-      if (!info.hasUpdate) {
+      final now = DateTime.now().millisecondsSinceEpoch;
+      final lastCheck = prefs.getInt(_lastUpdateCheckTimeKey);
+
+      // Auto-check only once every 24 hours unless user manually requests it
+      const oneDayMs = 24 * 60 * 60 * 1000;
+      final shouldSkipNetworkCheck =
+          !manual && lastCheck != null && (now - lastCheck) < oneDayMs;
+
+      UpdateInfo? info;
+
+      if (shouldSkipNetworkCheck) {
+        final package = await PackageInfo.fromPlatform();
+        final cachedLatest = prefs.getString(_lastKnownLatestVersionKey);
+        final cachedUrl = prefs.getString(_lastKnownInstallerUrlKey);
+        final cachedNotes = prefs.getStringList(_lastKnownNotesKey) ?? const <String>[];
+
+        if (cachedLatest != null && cachedUrl != null) {
+          info = UpdateInfo(
+            currentVersion: package.version,
+            latestVersion: cachedLatest,
+            installerUrl: cachedUrl,
+            notes: cachedNotes,
+          );
+        }
+      } else {
+        info = await checker.check().timeout(const Duration(seconds: 5));
+
+        if (info != null) {
+          await prefs.setInt(_lastUpdateCheckTimeKey, now);
+          await prefs.setString(_lastKnownLatestVersionKey, info.latestVersion);
+          await prefs.setString(_lastKnownInstallerUrlKey, info.installerUrl);
+          await prefs.setStringList(_lastKnownNotesKey, info.notes);
+        }
+      }
+
+      if (info == null) {
+        if (manual && mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Unable to check for updates.'),
+            ),
+          );
+        }
+        return;
+      }
+
+      final updateInfo = info;
+
+      if (!updateInfo.hasUpdate) {
         if (manual && mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -2282,12 +2333,9 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
         return;
       }
 
-      final prefs = await SharedPreferences.getInstance();
       final dismissedVersion = prefs.getString(_dismissedUpdateVersionKey);
 
-      // Skip popup if user already dismissed this exact version,
-      // unless they manually asked to check.
-      if (!manual && dismissedVersion == info.latestVersion) {
+      if (!manual && dismissedVersion == updateInfo.latestVersion) {
         return;
       }
 
@@ -2306,13 +2354,13 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Current version: ${info.currentVersion}'),
-                    Text('Latest version: ${info.latestVersion}'),
+                    Text('Current version: ${updateInfo.currentVersion}'),
+                    Text('Latest version: ${updateInfo.latestVersion}'),
                     const SizedBox(height: 12),
-                    if (info.notes.isNotEmpty) ...[
+                    if (updateInfo.notes.isNotEmpty) ...[
                       const Text('What’s new:'),
                       const SizedBox(height: 6),
-                      ...info.notes.map((n) => Text('• $n')),
+                      ...updateInfo.notes.map((n) => Text('• $n')),
                       const SizedBox(height: 12),
                     ],
                     CheckboxListTile(
@@ -2320,7 +2368,6 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                       onChanged: (value) async {
                         final newValue = value ?? false;
 
-                        // Turning it off never needs confirmation
                         if (!newValue) {
                           setLocal(() {
                             dontShowAgain = false;
@@ -2328,7 +2375,6 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                           return;
                         }
 
-                        // Turning it on should ask for confirmation
                         final confirm = await showDialog<bool>(
                           context: ctx,
                           builder: (confirmCtx) => AlertDialog(
@@ -2367,7 +2413,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                       if (dontShowAgain) {
                         await prefs.setString(
                           _dismissedUpdateVersionKey,
-                          info.latestVersion,
+                          updateInfo.latestVersion,
                         );
                       }
                       if (!ctx.mounted) return;
@@ -2377,11 +2423,9 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                   ),
                   FilledButton(
                     onPressed: () async {
-                      // Clear dismissed version so future checks work normally
-                      // if they don't install immediately.
                       await prefs.remove(_dismissedUpdateVersionKey);
 
-                      final uri = Uri.parse(info.installerUrl);
+                      final uri = Uri.parse(updateInfo.installerUrl);
                       await launchUrl(uri);
 
                       if (!ctx.mounted) return;
@@ -2395,11 +2439,14 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
           );
         },
       );
-    } catch (_) {
+    } catch (e, st) {
+      debugPrint('Update check failed: $e');
+      debugPrint('$st');
+
       if (manual && mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Unable to check for updates.'),
+          SnackBar(
+            content: Text('Unable to check for updates: $e'),
           ),
         );
       }

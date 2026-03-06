@@ -23,10 +23,7 @@ class AppDatabase {
       databaseFactory = databaseFactoryFfi;
     }
 
-    final dbPath = join(
-      await getDatabasesPath(),
-      'dantiko_lb'
-    );
+    final dbPath = await getDatabasesPath();
     final path = join(dbPath, _dbName);
 
     return await openDatabase(

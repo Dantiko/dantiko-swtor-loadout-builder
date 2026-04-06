@@ -60,6 +60,17 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
 
   final LoadoutRepository _loadoutRepo = LoadoutRepository();
 
+  final GlobalKey<ScaffoldMessengerState> _totalsPaneMessengerKey =
+    GlobalKey<ScaffoldMessengerState>();
+
+  void _showTotalsPaneSnackBar(String message) {
+    _totalsPaneMessengerKey.currentState
+      ?..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(content: Text(message)),
+      );
+  }
+
   CalcResult _calc() {
     final slots = <SlotSelection>[];
 
@@ -271,6 +282,16 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                   SwtorPillAction(label: 'Load Loadout', onTap: _openLoadLoadoutDialog),
                   SwtorPillAction(label: 'Clear Loadout', onTap: _confirmClearLoadout),
                 ],
+              ),
+
+              const Spacer(),
+
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: SwtorPillButton(
+                  label: 'Check for Updates',
+                  onTap: () => _checkForUpdates(manual: true),
+                ),
               ),
             ],
           ),
@@ -504,168 +525,172 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
 
     final displayKeys = <String>[...orderedKeys];
 
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: _StatsBackgroundFrame(
-        child: LayoutBuilder(
-          builder: (context, box) {
-            // Pick a "design height" that represents when the pane looks perfect.
-            // Tune this once based on your preferred window size.
-            const designHeight = 700.0;
 
-            // Scale down only when space is tight; never scale up.
-            final scale = (box.maxHeight / designHeight).clamp(0.72, 1.0);
+    return ScaffoldMessenger(
+      key: _totalsPaneMessengerKey,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: _StatsBackgroundFrame(
+          child: LayoutBuilder(
+            builder: (context, box) {
+              // Pick a "design height" that represents when the pane looks perfect.
+              // Tune this once based on your preferred window size.
+              const designHeight = 700.0;
 
-            double s(double v) => v * scale;
+              // Scale down only when space is tight; never scale up.
+              final scale = (box.maxHeight / designHeight).clamp(0.72, 1.0);
 
-            final headerStyle = Theme.of(context)
-                .textTheme
-                .headlineSmall
-                ?.copyWith(color: Colors.white, fontSize: (Theme.of(context).textTheme.headlineSmall?.fontSize ?? 24) * scale);
+              double s(double v) => v * scale;
 
-            return DefaultTextStyle(
-              style: TextStyle(color: Colors.white, fontSize: 14 * scale),
-              child: IconTheme(
-                data: IconThemeData(color: Colors.white, size: 24 * scale),
-                child: ListTileTheme(
-                  textColor: Colors.white,
-                  iconColor: Colors.white,
-                  child: Padding(
-                    padding: EdgeInsets.all(s(14)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'Totals',
-                                style: headerStyle,
-                              ),
-                            ),
-                            InkWell(
-                              onTap: _showTotalsNotes,
-                              child: Text(
-                                '| Click for Totals Notes |',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelLarge
-                                    ?.copyWith(
-                                      color: Colors.white70,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: s(10)),
+              final headerStyle = Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.copyWith(color: Colors.white, fontSize: (Theme.of(context).textTheme.headlineSmall?.fontSize ?? 24) * scale);
 
-                        // Totals: NON-scrollable
-                        Column(
-                          children: [
-                            for (final key in displayKeys)
-                              Padding(
-                                padding: EdgeInsets.symmetric(vertical: s(5)),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      flex: 7,
-                                      child: Text(
-                                        '${_prettyStatName(key)}:',
-                                        style: TextStyle(
-                                          color: _statLabelColor(key),
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14 * scale,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        _getStatValue(totals, key).toString(),
-                                        textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14 * scale,
-                                        ),
-                                      ),
-                                    ),
-                                    const Expanded(flex: 4, child: SizedBox()),
-                                  ],
+              return DefaultTextStyle(
+                style: TextStyle(color: Colors.white, fontSize: 14 * scale),
+                child: IconTheme(
+                  data: IconThemeData(color: Colors.white, size: 24 * scale),
+                  child: ListTileTheme(
+                    textColor: Colors.white,
+                    iconColor: Colors.white,
+                    child: Padding(
+                      padding: EdgeInsets.all(s(14)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'Totals',
+                                  style: headerStyle,
                                 ),
                               ),
-                          ],
-                        ),
-
-                        // Move divider down slightly (scaled)
-                        SizedBox(height: s(16)),
-                        Divider(color: Colors.white.withValues(alpha: 0.25), height: 1),
-                        SizedBox(height: s(10)),
-
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'Details',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall
-                                    ?.copyWith(color: Colors.white),
+                              InkWell(
+                                onTap: _showTotalsNotes,
+                                child: Text(
+                                  '| Click for Totals Notes |',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelLarge
+                                      ?.copyWith(
+                                        color: Colors.white70,
+                                      ),
+                                ),
                               ),
-                            ),
-
-                            // Clickable text label instead of icon
-                            InkWell(
-                              onTap: _showDetailsNote,
-                              child: Text(
-                                '| Click for Percentage Notes |',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelLarge
-                                    ?.copyWith(
-                                      color: Colors.white70,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: s(8)),
-
-                        // Details: NON-scrollable (make sure _detailsPane doesn't contain scroll)
-                        // If details content grows later, it will scale down with the same factor.
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(top: s(2)),
-                            child: _detailsPaneScaled(res, scale),
+                            ],
                           ),
-                        ),
+                          SizedBox(height: s(10)),
 
-                        if (res.warnings.isNotEmpty) ...[
+                          // Totals: NON-scrollable
+                          Column(
+                            children: [
+                              for (final key in displayKeys)
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: s(5)),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 7,
+                                        child: Text(
+                                          '${_prettyStatName(key)}:',
+                                          style: TextStyle(
+                                            color: _statLabelColor(key),
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 14 * scale,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Text(
+                                          _getStatValue(totals, key).toString(),
+                                          textAlign: TextAlign.right,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 14 * scale,
+                                          ),
+                                        ),
+                                      ),
+                                      const Expanded(flex: 4, child: SizedBox()),
+                                    ],
+                                  ),
+                                ),
+                            ],
+                          ),
+
+                          // Move divider down slightly (scaled)
+                          SizedBox(height: s(16)),
+                          Divider(color: Colors.white.withValues(alpha: 0.25), height: 1),
+                          SizedBox(height: s(10)),
+
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'Details',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall
+                                      ?.copyWith(color: Colors.white),
+                                ),
+                              ),
+
+                              // Clickable text label instead of icon
+                              InkWell(
+                                onTap: _showDetailsNote,
+                                child: Text(
+                                  '| Click for Percentage Notes |',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelLarge
+                                      ?.copyWith(
+                                        color: Colors.white70,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
                           SizedBox(height: s(8)),
-                          Text(
-                            'Warnings',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(color: Colors.white, fontSize: (Theme.of(context).textTheme.titleMedium?.fontSize ?? 16) * scale),
+
+                          // Details: NON-scrollable (make sure _detailsPane doesn't contain scroll)
+                          // If details content grows later, it will scale down with the same factor.
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.only(top: s(2)),
+                              child: _detailsPaneScaled(res, scale),
+                            ),
                           ),
-                          SizedBox(height: s(6)),
-                          ...res.warnings.take(3).map(
-                                (w) => Text(
-                                  '• $w',
-                                  style: TextStyle(color: Colors.white70, fontSize: 12 * scale),
-                                  overflow: TextOverflow.ellipsis,
+
+                          if (res.warnings.isNotEmpty) ...[
+                            SizedBox(height: s(8)),
+                            Text(
+                              'Warnings',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium
+                                  ?.copyWith(color: Colors.white, fontSize: (Theme.of(context).textTheme.titleMedium?.fontSize ?? 16) * scale),
+                            ),
+                            SizedBox(height: s(6)),
+                            ...res.warnings.take(3).map(
+                                  (w) => Text(
+                                    '• $w',
+                                    style: TextStyle(color: Colors.white70, fontSize: 12 * scale),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                 ),
-                              ),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );
@@ -1736,13 +1761,15 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                 OutlinedButton(
                   onPressed: () async {
                     await _importLoadoutFileAlwaysPromptCharacter();
+
+                    final updated = await _loadoutRepo.listCharacters();
+                    setLocal(() {
+                      characters = updated.toList();
+                    });
+
                     await refresh();
                   },
                   child: const Text('Import Loadout'),
-                ),
-                TextButton(
-                  onPressed: () => Navigator.of(ctx).pop(),
-                  child: const Text('Close'),
                 ),
               ],
             );
@@ -2000,9 +2027,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
     await file.saveTo(saveLocation.path);
 
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Loadout exported.')),
-    );
+    _showTotalsPaneSnackBar('Loadout exported.');
   }
 
   Future<void> _importLoadoutFileAlwaysPromptCharacter() async {
@@ -2020,9 +2045,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
       await transfer.importSingleLoadoutJson(jsonStr, targetCharacterId: targetId);
 
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Loadout imported successfully.')),
-      );
+      _showTotalsPaneSnackBar('Loadout imported successfully.');
     } on FormatException catch (e) {
       if (!mounted) return;
       showDialog<void>(
@@ -2261,10 +2284,11 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
   }
 
   static const String _dismissedUpdateVersionKey = 'dismissed_update_version';
-  static const String _lastUpdateCheckTimeKey = 'last_update_check_time';
   static const String _lastKnownLatestVersionKey = 'last_known_latest_version';
   static const String _lastKnownInstallerUrlKey = 'last_known_installer_url';
   static const String _lastKnownNotesKey = 'last_known_notes';
+
+  static bool _hasCheckedForUpdatesThisSession = false;
 
   Future<void> _checkForUpdates({bool manual = false}) async {
     final checker = UpdateChecker(
@@ -2274,13 +2298,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
     try {
       final prefs = await SharedPreferences.getInstance();
 
-      final now = DateTime.now().millisecondsSinceEpoch;
-      final lastCheck = prefs.getInt(_lastUpdateCheckTimeKey);
-
-      // Auto-check only once every 24 hours unless user manually requests it
-      const oneDayMs = 24 * 60 * 60 * 1000;
-      final shouldSkipNetworkCheck =
-          !manual && lastCheck != null && (now - lastCheck) < oneDayMs;
+      final shouldSkipNetworkCheck = !manual && _hasCheckedForUpdatesThisSession;
 
       UpdateInfo? info;
 
@@ -2301,8 +2319,9 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
       } else {
         info = await checker.check().timeout(const Duration(seconds: 5));
 
+        _hasCheckedForUpdatesThisSession = true;
+
         if (info != null) {
-          await prefs.setInt(_lastUpdateCheckTimeKey, now);
           await prefs.setString(_lastKnownLatestVersionKey, info.latestVersion);
           await prefs.setString(_lastKnownInstallerUrlKey, info.installerUrl);
           await prefs.setStringList(_lastKnownNotesKey, info.notes);
@@ -2311,11 +2330,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
 
       if (info == null) {
         if (manual && mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Unable to check for updates.'),
-            ),
-          );
+          _showTotalsPaneSnackBar('Unable to check for updates.');
         }
         return;
       }
@@ -2324,11 +2339,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
 
       if (!updateInfo.hasUpdate) {
         if (manual && mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('You are running the latest version.'),
-            ),
-          );
+          _showTotalsPaneSnackBar('You are running the latest version.');
         }
         return;
       }
@@ -2444,11 +2455,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
       debugPrint('$st');
 
       if (manual && mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Unable to check for updates: $e'),
-          ),
-        );
+        _showTotalsPaneSnackBar('Unable to check for updates: $e');
       }
     }
   }

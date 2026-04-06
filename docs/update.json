@@ -1,7 +1,12 @@
 {
-  "latestVersion": "1.0.0",
-  "installerUrl": "https://github.com/Dantiko/dantiko-swtor-loadout-builder/releases/download/v1.0.0/DantikoLB_Setup_1.0.0.exe",
+  "latestVersion": "1.0.1",
+  "installerUrl": "https://github.com/Dantiko/dantiko-swtor-loadout-builder/releases/download/v1.0.1/DantikoLB_Setup_1.0.1.exe",
   "notes": [
-    "Initial Release"
+    "Dantiko's Loadout Builder App v1.0.1",
+    "- Fixed bug that caused Unknown to show for the character name in the loadout list for loadouts imported under a character that was created in the import menu.",
+    "- Fixed bug that caused popups for update checker, importing, and exporting loadouts to show in both the gear selection widget and the totals/details pane.",
+    "- Update Checker now checks for an update on app startup rather than having a 24H cooldown that is cached.",
+    "- Updates can now additionally be checked for manually with a new Check for Updates button in the UI.",
+    "- Added a manual Check for Updates button at the bottom of the Class/Spec pane for users to be able to manually check for app updates while the app is open."
   ]
 }

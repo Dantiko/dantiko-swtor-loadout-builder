@@ -1,12 +1,13 @@
 {
-  "latestVersion": "1.1.0",
-  "installerUrl": "https://github.com/Dantiko/dantiko-swtor-loadout-builder/releases/download/v1.1.0/DantikoLB_Setup_1.1.0.exe",
+  "latestVersion": "1.1.1",
+  "installerUrl": "https://github.com/Dantiko/dantiko-swtor-loadout-builder/releases/download/v1.1.1/DantikoLB_Setup_1.1.1.exe",
   "notes": [
     "Dantiko's Loadout Builder App v1.1.1",
     "- Relic Slot Rework to allow users to select a named relic in each slot instead of the 3 previous options.",
     "- Relics with a Proc or Activation now enable a toggle in the Class/Spec pane to add the relic effect to the stat totals/percentages",
     "- New UI elements to support relic rework",
     "- Users can now overwrite an existing saved Loadout instead of having to create a new one when making changes to gear or class/spec selections.",
-    "- New UI elements to support the overwrite functionality"
+    "- New UI elements to support the overwrite functionality",
+    "- Bug fixes for Database version and column errors with new changes to relic system"
   ]
 }

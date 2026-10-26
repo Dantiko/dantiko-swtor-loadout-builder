@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:crypto/crypto.dart';
 
 import '../data/loadout_repository.dart';
+import '../models/relic_effect.dart';
 import '../services/enums.dart';
 import '../services/key_builders.dart' show PreferredProfile;
 
@@ -47,6 +48,8 @@ class LoadoutTransfer {
         'focus': row.focus.name,
         'augmentKey': row.augmentKey,
         'preferredProfile': row.preferredProfile.name,
+        if (row.relicEffect != null) 'relicEffect': row.relicEffect!.name,
+        'relicActive': row.relicActive,
       });
     }
 
@@ -132,6 +135,10 @@ class LoadoutTransfer {
           augmentKey: augmentKey,
           preferredProfile: PreferredProfile.values.byName(prefName),
           crystalKey: null,
+          relicEffect: s['relicEffect'] == null
+              ? legacyRelicForFocus(focusName)
+              : parseRelicEffect(s['relicEffect'] as String),
+          relicActive: s['relicActive'] == true,
         ),
       );
     }

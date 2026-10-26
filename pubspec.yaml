@@ -39,6 +39,7 @@ flutter:
     - assets/data/augments.json
     - assets/data/crystals.json
     - assets/data/stims.json
+    - assets/data/relic_bonuses.json
     - assets/ui/gear_bg.png
     - assets/ui/stats_bg.png
 

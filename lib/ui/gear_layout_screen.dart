@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../domain/slot_policy.dart';
 import '../models/stat_bundle.dart';
+import '../models/relic_effect.dart';
 import '../services/asset_repository.dart';
 import '../services/calculator.dart';
 import '../services/enums.dart';
@@ -14,6 +15,7 @@ import '../services/update_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../data/loadout_transfer.dart';
+import '../models/relic_bonuses.dart';
 
 // Turn on only while tuning anchors
 const bool kAnchorDebug = false;
@@ -35,6 +37,23 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
   String crystalOffKey = 'CRYSTAL_NONE';
 
   late final Map<GearSlot, _SlotState> slotState;
+  bool _isRelic(GearSlot slot) =>
+      slot == GearSlot.RELIC_1 || slot == GearSlot.RELIC_2;
+
+  GearSlot _otherRelicSlot(GearSlot slot) =>
+      slot == GearSlot.RELIC_1 ? GearSlot.RELIC_2 : GearSlot.RELIC_1;
+
+  // Temporary effects are unique; passive tank relics may be equipped twice.
+  List<RelicEffectType?> _availableRelicTypes(GearSlot slot) {
+    final other = slotState[_otherRelicSlot(slot)];
+    final otherType = other?.rating == null ? null : other?.relicEffect;
+    return <RelicEffectType?>[
+      null,
+      ...RelicEffectType.values.where(
+        (effect) => !effect.hasToggle || effect != otherType,
+      ),
+    ];
+  }
 
   // Background image aspect ratio: 303x578
   static const double _paperDollAspect = 303 / 578;
@@ -81,6 +100,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
       st.normalize(slot);
 
       if (st.rating == null) continue;
+      if (_isRelic(slot) && st.relicEffect == null) continue;
 
       final norm = SlotPolicy.normalizeSelection(
         slot: slot,
@@ -94,6 +114,8 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
         focus: norm.focus,
         augmentKey: st.augmentKey,
         preferredProfile: st.preferredProfile,
+        relicEffect: _isRelic(slot) ? st.relicEffect : null,
+        relicActive: _isRelic(slot) && st.relicActive,
       ));
     }
 
@@ -128,7 +150,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
         if (isWide) {
           return Row(
             children: [
-              SizedBox(width: 220, child: _classSpecPane()),
+              SizedBox(width: 380, child: _classSpecPane()),
               SizedBox(width: 380, child: _paperDollPane()),
               Expanded(child: _totalsPane(res)),
             ],
@@ -149,6 +171,15 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
   // Helper: only WRISTS/WAIST use the DPS vs TANK variant.
   // Everything else defaults to DPS since you removed the old “profile” selection.
   GearProfile _profileForSlot(GearSlot slot, _SlotState st) {
+    if (_isRelic(slot)) {
+      return switch (st.relicEffect) {
+        RelicEffectType.absorbPassive ||
+        RelicEffectType.shieldPassive ||
+        RelicEffectType.defenseActivation ||
+        RelicEffectType.shieldAbsorbActivation => GearProfile.TANK,
+        _ => GearProfile.DPS,
+      };
+    }
     // Wrists/Waist: explicit DPS/TANK variant selection
     if (slot == GearSlot.WRISTS || slot == GearSlot.WAIST) {
       return st.preferredProfile == PreferredProfile.TANK
@@ -278,12 +309,14 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                 actions: [
                   SwtorPillAction(label: 'Save Loadout', onTap: (selectedClass == null || selectedDiscipline == null)
                         ? null
-                        : _openSaveLoadoutDialog,),
+                        : _openSaveModeDialog,),
                   SwtorPillAction(label: 'Load Loadout', onTap: _openLoadLoadoutDialog),
                   SwtorPillAction(label: 'Clear Loadout', onTap: _confirmClearLoadout),
                 ],
               ),
 
+              const SizedBox(height: 12),
+              _relicEffectControls(),
               const Spacer(),
 
               Align(
@@ -297,6 +330,69 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  String _relicBonusDescription(RelicEffectType effect, int rating) {
+    final bonus = relicActiveBonus(widget.repo.relicBonuses, effect, rating);
+
+    if (bonus == null) {
+      return 'Bonus unavailable for rating $rating';
+    }
+
+    String format(int value) =>
+        value.toString().replaceAllMapped(
+          RegExp(r'\B(?=(\d{3})+(?!\d))'),
+          (match) => ',',
+        );
+
+    final stats = <String>[];
+
+    if (bonus.mastery != 0) stats.add('+${format(bonus.mastery)} Mastery');
+    if (bonus.power != 0) stats.add('+${format(bonus.power)} Power');
+    if (bonus.critical != 0) stats.add('+${format(bonus.critical)} Critical');
+    if (bonus.alacrity != 0) stats.add('+${format(bonus.alacrity)} Alacrity');
+    if (bonus.defense != 0) stats.add('+${format(bonus.defense)} Defense');
+    if (bonus.shield != 0) stats.add('+${format(bonus.shield)} Shield');
+    if (bonus.absorb != 0) stats.add('+${format(bonus.absorb)} Absorb');
+
+    return stats.isEmpty ? 'No temporary bonus' : stats.join(' / ');
+  }
+
+  Widget _relicEffectControls() {
+    final selected = [GearSlot.RELIC_1, GearSlot.RELIC_2].where((slot) {
+      final st = slotState[slot]!;
+      return st.rating != null && st.relicEffect?.hasToggle == true;
+    }).toList();
+    if (selected.isEmpty) return const SizedBox.shrink();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('Relic Effects', style: TextStyle(
+          color: Colors.white, fontWeight: FontWeight.bold)),
+        for (final slot in selected)
+          SwitchListTile(
+            dense: true,
+            contentPadding: EdgeInsets.zero,
+            title: Text('${slot == GearSlot.RELIC_1 ? 'Relic 1' : 'Relic 2'}: '
+                '${slotState[slot]!.relicEffect!.displayName}',
+                style: const TextStyle(color: Colors.white, fontSize: 11)),
+            subtitle: Text(
+                _relicBonusDescription(
+                  slotState[slot]!.relicEffect!,
+                  slotState[slot]!.rating!,
+                ),
+                style: const TextStyle(
+                  color: Colors.white70,
+                  fontSize: 10,
+                ),
+              ),
+            value: slotState[slot]!.relicActive,
+            onChanged: (value) => setState(() {
+              slotState[slot]!.relicActive = value;
+            }),
+          ),
+      ],
     );
   }
 
@@ -350,14 +446,18 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
 
                         if (isSelected) {
                           // Build the same gear key your calculator uses
+                          final isTankActivationRelic = _isRelic(slot) &&
+                              (st.relicEffect == RelicEffectType.shieldAbsorbActivation ||
+                              st.relicEffect == RelicEffectType.defenseActivation);
+
                           final gearKey = buildGearKey(
                             rating: st.rating!,
                             slot: slot,
                             profile: _profileForSlot(slot, st),
-                            focus: st.focus,
+                            focus: isTankActivationRelic ? StatFocus.SHIELD : st.focus,
                           );
 
-                            final stats = widget.repo.gear[gearKey];
+                          final stats = widget.repo.gear[gearKey];
 
                             // Inlay: focus color (transparent for NONE)
                             fillColor = _focusBorderColor(st.focus).withValues(alpha: 0.40);
@@ -819,7 +919,7 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
             final focusOptions = SlotPolicy.focusOptionsForSlot(slot);
 
             final showVariant = st.rating != null && _slotUsesVariantToggle(slot);
-            final showFocus = st.rating != null &&
+            final showFocus = !_isRelic(slot) && st.rating != null &&
                 !_slotUsesVariantToggle(slot) &&
                 SlotPolicy.showFocusDropdown(slot);
 
@@ -861,7 +961,10 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                     label: 'Item Rating',
                     value: st.rating,
                     items: ratingOptions,
-                    onChanged: (v) => apply(() => st.rating = v),
+                    onChanged: (v) => apply(() {
+                      if (st.rating != v) st.relicActive = false;
+                      st.rating = v;
+                    }),
                     display: (v) => v == null ? 'None' : v.toString(),
                   ),
                   const SizedBox(height: 10),
@@ -876,6 +979,24 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                       ],
                       onChanged: (v) => apply(() => st.preferredProfile = v),
                       display: _preferredProfileLabel,
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+
+                  if (_isRelic(slot) && st.rating != null) ...[
+                    _DropdownRowNullable<RelicEffectType>(
+                      label: 'Relic',
+                      value: st.relicEffect,
+                      items: _availableRelicTypes(slot),
+                      onChanged: (v) => apply(() {
+                        st.relicEffect = v;
+                        st.relicActive = false;
+                        st.focus = v == RelicEffectType.shieldPassive
+                            ? StatFocus.SHIELD
+                            : v == RelicEffectType.absorbPassive
+                                ? StatFocus.ABSORB : StatFocus.NONE;
+                      }),
+                      display: (v) => v?.displayName ?? 'Select Relic Type',
                     ),
                     const SizedBox(height: 10),
                   ],
@@ -1102,6 +1223,8 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
               ? (_SlotState.initialForSlot(slot).preferredProfile)
               : st.preferredProfile,
           crystalKey: null, // crystals are globals in your design
+          relicEffect: _isRelic(slot) && st.rating != null ? st.relicEffect : null,
+          relicActive: _isRelic(slot) && st.rating != null && st.relicActive,
         ),
       );
     }
@@ -1141,6 +1264,21 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
         st.focus = saved.focus;
         st.augmentKey = saved.augmentKey;
         st.preferredProfile = saved.preferredProfile;
+        // Legacy/imported loadouts may contain duplicate temporary relics.
+        // Keep the first and clear the second, without altering passive pairs.
+        final requestedRelic = _isRelic(slot) ? saved.relicEffect : null;
+        final other = _isRelic(slot) ? slotState[_otherRelicSlot(slot)] : null;
+        final duplicateTemporaryRelic = requestedRelic?.hasToggle == true &&
+            other?.rating != null && other?.relicEffect == requestedRelic;
+        st.relicEffect = duplicateTemporaryRelic ? null : requestedRelic;
+        st.relicActive = _isRelic(slot) &&
+            (st.relicEffect?.hasToggle ?? false) && saved.relicActive;
+        if (_isRelic(slot)) {
+          st.focus = saved.relicEffect == RelicEffectType.shieldPassive
+              ? StatFocus.SHIELD
+              : saved.relicEffect == RelicEffectType.absorbPassive
+                  ? StatFocus.ABSORB : StatFocus.NONE;
+        }
 
         // Ensure constraints are enforced
         st.normalize(slot);
@@ -1184,6 +1322,270 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
             child: const Text('Create'),
           ),
         ],
+      ),
+    );
+  }
+
+  // Save entry point: choose whether to create a new loadout or replace one.
+  Future<void> _openSaveModeDialog() async {
+    final mode = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Save Loadout'),
+        content: const Text('How would you like to save your current build?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: const Text('Cancel'),
+          ),
+          OutlinedButton(
+            onPressed: () => Navigator.of(ctx).pop('new'),
+            child: const Text('Save as New Loadout'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(ctx).pop('overwrite'),
+            child: const Text('Overwrite Existing Loadout'),
+          ),
+        ],
+      ),
+    );
+    if (!mounted) return;
+    if (mode == 'new') {
+      await _openSaveLoadoutDialog();
+    } else if (mode == 'overwrite') {
+      await _openSaveOverwriteDialog();
+    }
+  }
+
+  // Save flow: same filter/list presentation as Load Loadout, but selects
+  // an existing loadout to overwrite rather than loading it.
+  Future<void> _openSaveOverwriteDialog() async {
+    final characters = await _loadoutRepo.listCharacters();
+    final loadouts = await _loadoutRepo.searchLoadouts(limit: 10000);
+    if (!mounted) return;
+
+    final characterNames = {for (final c in characters) c.id: c.name};
+    int? characterFilterId;
+    String? disciplineFilter;
+    String search = '';
+    final searchCtrl = TextEditingController();
+    int? selectedId;
+    bool saving = false;
+
+    await showDialog<void>(
+      context: context,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setLocal) {
+          final byCharacterAndSearch = loadouts.where((r) {
+            if (characterFilterId != null && r.characterId != characterFilterId) {
+              return false;
+            }
+            final term = search.trim().toLowerCase();
+            return term.isEmpty ||
+                r.name.toLowerCase().contains(term) ||
+                (r.notes ?? '').toLowerCase().contains(term);
+          }).toList();
+
+          final disciplineOptions = byCharacterAndSearch
+              .map((r) => r.discipline)
+              .whereType<String>()
+              .where((d) => d.trim().isNotEmpty)
+              .toSet()
+              .toList()..sort();
+
+          final results = byCharacterAndSearch.where((r) =>
+              disciplineFilter == null || r.discipline == disciplineFilter).toList();
+          final selectedMatches = loadouts.where((r) => r.id == selectedId);
+          final LoadoutSummary? selected =
+              selectedMatches.isEmpty ? null : selectedMatches.first;
+
+          Widget filterRow(String label, Widget field) => Row(
+            children: [
+              SizedBox(width: 130, child: Text(label)),
+              Expanded(child: field),
+            ],
+          );
+
+          return AlertDialog(
+            title: const Text('Overwrite Existing Loadout'),
+            content: Builder(builder: (innerCtx) {
+              final screen = MediaQuery.of(innerCtx).size;
+              final dialogW = (screen.width * 0.92).clamp(520.0, 760.0);
+              final dialogH = (screen.height * 0.80).clamp(420.0, 760.0);
+              return SizedBox(
+                width: dialogW,
+                height: dialogH,
+                child: Column(
+                  children: [
+                    const Divider(height: 1),
+                    const SizedBox(height: 10),
+                    filterRow('Character', DropdownButtonFormField<int?>(
+                      key: ValueKey('overwrite-character-${characterFilterId ?? "all"}'),
+                      initialValue: characterFilterId,
+                      isExpanded: true,
+                      icon: const SizedBox.shrink(),
+                      decoration: const InputDecoration(isDense: true),
+                      items: [
+                        const DropdownMenuItem<int?>(value: null, child: Text('All')),
+                        for (final c in characters)
+                          DropdownMenuItem<int?>(value: c.id, child: Text(c.name)),
+                      ],
+                      onChanged: saving ? null : (v) => setLocal(() {
+                        characterFilterId = v;
+                        disciplineFilter = null;
+                      }),
+                    )),
+                    const SizedBox(height: 10),
+                    filterRow('Discipline Filter', DropdownButtonFormField<String?>(
+                      key: ValueKey('overwrite-discipline-${disciplineFilter ?? "all"}'),
+                      initialValue: disciplineOptions.contains(disciplineFilter)
+                          ? disciplineFilter : null,
+                      isExpanded: true,
+                      icon: const SizedBox.shrink(),
+                      decoration: const InputDecoration(isDense: true),
+                      items: [
+                        const DropdownMenuItem<String?>(value: null, child: Text('All')),
+                        for (final d in disciplineOptions)
+                          DropdownMenuItem<String?>(value: d, child: Text(d)),
+                      ],
+                      onChanged: saving ? null : (v) => setLocal(() => disciplineFilter = v),
+                    )),
+                    const SizedBox(height: 10),
+                    filterRow('Search', TextField(
+                      controller: searchCtrl,
+                      enabled: !saving,
+                      decoration: const InputDecoration(
+                        isDense: true,
+                        hintText: 'Loadout Name',
+                      ),
+                      onChanged: (v) => setLocal(() {
+                        search = v;
+                        disciplineFilter = null;
+                      }),
+                    )),
+                    const SizedBox(height: 10),
+                    Row(children: [
+                      SizedBox(width: 130, child: OutlinedButton(
+                        onPressed: saving ? null : () => setLocal(() {
+                          characterFilterId = null;
+                          disciplineFilter = null;
+                          search = '';
+                          searchCtrl.clear();
+                        }),
+                        child: const Text('Clear Filters'),
+                      )),
+                    ]),
+                    const SizedBox(height: 10),
+                    const Divider(height: 1),
+                    const SizedBox(height: 8),
+                    Expanded(child: results.isEmpty
+                        ? const Center(child: Text('No loadouts found.'))
+                        : ListView.separated(
+                            itemCount: results.length,
+                            separatorBuilder: (_, _) => const Divider(height: 1),
+                            itemBuilder: (listCtx, i) {
+                              final r = results[i];
+                              final isSelected = selectedId == r.id;
+                              return ListTile(
+                                selected: isSelected,
+                                
+                                isThreeLine: true,
+                                title: Text(
+                                  '(${characterNames[r.characterId] ?? 'Unknown'}) ${r.name}',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: isSelected ? const TextStyle(fontWeight: FontWeight.bold) : null,
+                                ),
+                                subtitle: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const SizedBox(height: 2),
+                                    Text([
+                                      if ((r.combatStyle ?? '').isNotEmpty) r.combatStyle!,
+                                      if ((r.discipline ?? '').isNotEmpty) r.discipline!,
+                                    ].join(' • '), overflow: TextOverflow.ellipsis),
+                                    if ((r.notes ?? '').trim().isNotEmpty) ...[
+                                      const SizedBox(height: 4),
+                                      Text(r.notes!.trim(), maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: Theme.of(ctx).textTheme.bodySmall),
+                                    ],
+                                  ],
+                                ),
+                                onTap: saving ? null : () => setLocal(() => selectedId = r.id),
+                              );
+                            },
+                          )),
+                  ],
+                ),
+              );
+            }),
+            actions: [
+              TextButton(
+                onPressed: saving ? null : () => Navigator.of(ctx).pop(),
+                child: const Text('Cancel'),
+              ),
+              FilledButton(
+                onPressed: selected == null || saving ? null : () async {
+                  final confirmed = await showDialog<bool>(
+                    context: ctx,
+                    builder: (confirmCtx) => AlertDialog(
+                      title: const Text('Overwrite Loadout?'),
+                      content: Text(
+                        'Replace the saved build for "${selected.name}" with your current gear, relics, augments, crystals, stims, and Class/Spec?\n\n'
+                        'The loadout name, character, and notes will remain unchanged.',
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.of(confirmCtx).pop(false),
+                          child: const Text('Cancel'),
+                        ),
+                        FilledButton(
+                          onPressed: () => Navigator.of(confirmCtx).pop(true),
+                          child: const Text('Overwrite'),
+                        ),
+                      ],
+                    ),
+                  );
+                  if (confirmed != true || !ctx.mounted) return;
+                  setLocal(() => saving = true);
+                  try {
+                    await _loadoutRepo.overwriteLoadoutBuild(
+                      loadoutId: selected.id,
+                      combatStyle: selectedClass,
+                      discipline: selectedDiscipline,
+                      stimKey: stimKey,
+                      crystalMainKey: crystalMainKey,
+                      crystalOffKey: crystalOffKey,
+                      slotRows: _buildSlotRowsFromState(),
+                    );
+                    if (!ctx.mounted) return;
+                    Navigator.of(ctx).pop();
+                    if (mounted) {
+                      _showTotalsPaneSnackBar('Overwrote "${selected.name}" successfully.');
+                    }
+                  } catch (error) {
+                    if (!ctx.mounted) return;
+                    setLocal(() => saving = false);
+                    await showDialog<void>(
+                      context: ctx,
+                      builder: (errorCtx) => AlertDialog(
+                        title: const Text('Overwrite failed'),
+                        content: Text('$error'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(errorCtx).pop(),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                },
+                child: Text(saving ? 'Saving...' : 'Overwrite Selected'),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
@@ -1688,6 +2090,60 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                                                 );
                                               },
                                               child: const Text('Edit'),
+                                            ),
+                                            const SizedBox(width: 4),
+                                            TextButton(
+                                              onPressed: () async {
+                                                final confirmed = await showDialog<bool>(
+                                                  context: ctx,
+                                                  builder: (confirmCtx) => AlertDialog(
+                                                    title: const Text('Overwrite Loadout?'),
+                                                    content: Text(
+                                                      'Replace the saved build for "${r.name}" with your current gear, relics, augments, crystals, stims, and Class/Spec?\n\n'
+                                                      'The loadout name, character, and notes will remain unchanged.',
+                                                    ),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () => Navigator.of(confirmCtx).pop(false),
+                                                        child: const Text('Cancel'),
+                                                      ),
+                                                      FilledButton(
+                                                        onPressed: () => Navigator.of(confirmCtx).pop(true),
+                                                        child: const Text('Overwrite'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                                if (confirmed != true) return;
+                                                try {
+                                                  await _loadoutRepo.overwriteLoadoutBuild(
+                                                    loadoutId: r.id,
+                                                    combatStyle: selectedClass,
+                                                    discipline: selectedDiscipline,
+                                                    stimKey: stimKey,
+                                                    crystalMainKey: crystalMainKey,
+                                                    crystalOffKey: crystalOffKey,
+                                                    slotRows: _buildSlotRowsFromState(),
+                                                  );
+                                                  await refresh();
+                                                } catch (e) {
+                                                  if (!ctx.mounted) return;
+                                                  await showDialog<void>(
+                                                    context: ctx,
+                                                    builder: (errorCtx) => AlertDialog(
+                                                      title: const Text('Overwrite failed'),
+                                                      content: Text('$e'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () => Navigator.of(errorCtx).pop(),
+                                                          child: const Text('OK'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                }
+                                              },
+                                              child: const Text('Overwrite'),
                                             ),
                                             const SizedBox(width: 4),
                                             TextButton(
@@ -2590,7 +3046,7 @@ const Map<GearSlot, _SlotAnchor> _slotAnchors = {
   GearSlot.CHEST:  _SlotAnchor(0.4310, 0.4585, 0.1700, 0.0950),
   GearSlot.WRISTS: _SlotAnchor(0.2284, 0.4585, 0.1700, 0.0950),
   GearSlot.HANDS:  _SlotAnchor(0.6310, 0.4585, 0.1700, 0.0950),
-  GearSlot.WAIST:  _SlotAnchor(0.4310, 0.5655, 0.1700, 0.0950),
+  GearSlot.WAIST:  _SlotAnchor(0.4310, 0.5625, 0.1700, 0.0950),
   GearSlot.LEGS:   _SlotAnchor(0.6310, 0.5625, 0.1700, 0.0950),
   GearSlot.FEET:   _SlotAnchor(0.2284, 0.5625, 0.1700, 0.0950),
 
@@ -2613,6 +3069,9 @@ class _SlotState {
   StatFocus focus;
   String augmentKey;
   PreferredProfile preferredProfile;
+
+  RelicEffectType? relicEffect;
+  bool relicActive = false;
 
   _SlotState({
     required this.rating,
@@ -2637,9 +3096,15 @@ class _SlotState {
       preferredProfile = _slotUsesVariantToggle(slot)
           ? PreferredProfile.DPS
           : PreferredProfile.AUTO;
+      relicEffect = null;
+      relicActive = false;
       return;
     }
 
+    if ((slot == GearSlot.RELIC_1 || slot == GearSlot.RELIC_2) &&
+        relicEffect?.hasToggle != true) {
+      relicActive = false;
+    }
     final norm = SlotPolicy.normalizeSelection(slot: slot, rating: rating!, focus: focus);
     rating = norm.rating;
     focus = norm.focus;

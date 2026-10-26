@@ -6,7 +6,7 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class AppDatabase {
   static const _dbName = 'dantiko_lb.db';
-  static const _dbVersion = 2;
+  static const _dbVersion = 3;
 
   static Database? _database;
 
@@ -83,6 +83,8 @@ class AppDatabase {
         augment_key TEXT NOT NULL,
         preferred_profile TEXT NOT NULL,
         crystal_key TEXT,
+        relic_effect TEXT,
+        relic_active INTEGER NOT NULL DEFAULT 0,
         PRIMARY KEY(loadout_id, slot),
         FOREIGN KEY(loadout_id) REFERENCES loadouts(id) ON DELETE CASCADE
       );
@@ -104,6 +106,10 @@ class AppDatabase {
   }
 
   static Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 3) {
+      await db.execute('ALTER TABLE loadout_slots ADD COLUMN relic_effect TEXT;');
+      await db.execute('ALTER TABLE loadout_slots ADD COLUMN relic_active INTEGER NOT NULL DEFAULT 0;');
+    }
     if (oldVersion < 2) {
       // Recreate loadout_globals with crystals (simple migration)
       await db.execute('DROP TABLE IF EXISTS loadout_globals;');

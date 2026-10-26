@@ -4,6 +4,8 @@ import '../domain/stat_caps.dart';
 import '../domain/stat_formula_config.dart';
 import '../models/selected_spec_context.dart';
 import '../models/stat_bundle.dart';
+import '../models/relic_effect.dart';
+import '../models/relic_bonuses.dart';
 import '../services/asset_repository.dart';
 import '../services/enums.dart';
 import '../services/key_builders.dart' show PreferredProfile, buildGearKey;
@@ -88,6 +90,8 @@ class SlotSelection {
   final StatFocus focus;
   final String augmentKey;
   final PreferredProfile preferredProfile;
+  final RelicEffectType? relicEffect;
+  final bool relicActive;
 
   const SlotSelection({
     required this.slot,
@@ -95,6 +99,8 @@ class SlotSelection {
     required this.focus,
     required this.augmentKey,
     required this.preferredProfile,
+    this.relicEffect,
+    this.relicActive = false,
   });
 }
 
@@ -129,6 +135,15 @@ class CalcResult {
 /// ============================================================================
 
 GearProfile _profileForSlotSelection(SlotSelection s) {
+  if (s.slot == GearSlot.RELIC_1 || s.slot == GearSlot.RELIC_2) {
+    return switch (s.relicEffect) {
+      RelicEffectType.absorbPassive ||
+      RelicEffectType.shieldPassive ||
+      RelicEffectType.defenseActivation ||
+      RelicEffectType.shieldAbsorbActivation => GearProfile.TANK,
+      _ => GearProfile.DPS,
+    };
+  }
   // Wrists/Waist: user explicitly chooses DPS vs TANK variant
   if (s.slot == GearSlot.WRISTS || s.slot == GearSlot.WAIST) {
     return s.preferredProfile == PreferredProfile.TANK
@@ -294,18 +309,50 @@ CalcResult computeTotals({
       focus: s.focus,
     );
 
+    if ((s.slot == GearSlot.RELIC_1 || s.slot == GearSlot.RELIC_2) &&
+        s.relicEffect == null) continue;
+
+    final relicFocus = s.relicEffect == RelicEffectType.shieldPassive
+        ? StatFocus.SHIELD
+        : s.relicEffect == RelicEffectType.absorbPassive
+            ? StatFocus.ABSORB
+            : (s.relicEffect == RelicEffectType.defenseActivation ||
+               s.relicEffect == RelicEffectType.shieldAbsorbActivation)
+                ? StatFocus.SHIELD : norm.focus;
     final gearKey = buildGearKey(
       rating: norm.rating,
       slot: s.slot,
       profile: _profileForSlotSelection(s),
-      focus: norm.focus,
+      focus: relicFocus,
     );
 
-    final gearStats = repo.gear[gearKey];
+    final sourceGearStats = repo.gear[gearKey];
+    // Tank activation relics share the tank Mastery/Defense base values,
+    // but do not receive the passive Shield/Absorb tertiary ratings.
+    final gearStats = sourceGearStats == null ? null :
+        ((s.slot == GearSlot.RELIC_1 || s.slot == GearSlot.RELIC_2) &&
+         (s.relicEffect == RelicEffectType.defenseActivation ||
+          s.relicEffect == RelicEffectType.shieldAbsorbActivation))
+          ? StatBundle(mastery: sourceGearStats.mastery,
+                       defense: sourceGearStats.defense)
+          : sourceGearStats;
     if (gearStats == null) {
       warnings.add('Missing gear key: $gearKey');
     } else {
       totals = _add(totals, gearStats);
+    }
+
+    // Temporary proc/activation stats are applied separately from base gear.
+    // Apply BEFORE the primary-stat multiplier and derived stat calculations.
+    if ((s.slot == GearSlot.RELIC_1 || s.slot == GearSlot.RELIC_2) &&
+        s.relicActive && s.relicEffect?.hasToggle == true) {
+      final bonus = relicActiveBonus(repo.relicBonuses, s.relicEffect!, norm.rating);
+      if (bonus == null) {
+        warnings.add('Missing relic bonus: ${s.relicEffect!.name} '
+            'at rating ${norm.rating}');
+      } else {
+        totals = _add(totals, bonus);
+      }
     }
 
     if (s.augmentKey.isNotEmpty && s.augmentKey != 'AUG_NONE') {

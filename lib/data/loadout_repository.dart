@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:sqflite/sqflite.dart';
 
 import '../data/app_database.dart';
+import '../models/relic_effect.dart';
 import '../services/enums.dart'; // GearSlot, StatFocus
 import '../services/key_builders.dart' show PreferredProfile;
 
@@ -80,6 +81,8 @@ class LoadoutSlotRow {
   final String augmentKey; // 'AUG_NONE' etc.
   final PreferredProfile preferredProfile; // AUTO/DPS/TANK
   final String? crystalKey; // only for MAIN_HAND/OFF_HAND if you use it
+  final RelicEffectType? relicEffect;
+  final bool relicActive;
 
   const LoadoutSlotRow({
     required this.slot,
@@ -88,6 +91,8 @@ class LoadoutSlotRow {
     required this.augmentKey,
     required this.preferredProfile,
     required this.crystalKey,
+    this.relicEffect,
+    this.relicActive = false,
   });
 
   static LoadoutSlotRow fromMap(Map<String, Object?> m) => LoadoutSlotRow(
@@ -97,6 +102,10 @@ class LoadoutSlotRow {
         augmentKey: (m['augment_key'] as String),
         preferredProfile: PreferredProfile.values.byName(m['preferred_profile'] as String),
         crystalKey: (m['crystal_key'] as String?),
+        relicEffect: m['relic_effect'] == null
+            ? legacyRelicForFocus(m['focus'] as String)
+            : parseRelicEffect(m['relic_effect'] as String),
+        relicActive: m['relic_active'] == 1,
       );
 }
 
@@ -295,10 +304,60 @@ class LoadoutRepository {
           'augment_key': r.augmentKey,
           'preferred_profile': r.preferredProfile.name,
           'crystal_key': r.crystalKey,
+          'relic_effect': r.relicEffect?.name,
+          'relic_active': r.relicActive ? 1 : 0,
         });
       }
 
       return loadoutId;
+    });
+  }
+
+  /// Replace only the saved build, preserving identity and user metadata.
+  Future<void> overwriteLoadoutBuild({
+    required int loadoutId,
+    required String? combatStyle,
+    required String? discipline,
+    required String stimKey,
+    required String crystalMainKey,
+    required String crystalOffKey,
+    required List<LoadoutSlotRow> slotRows,
+  }) async {
+    final db = await _db;
+    await db.transaction((txn) async {
+      final existing = await txn.query('loadouts',
+          columns: ['id'], where: 'id = ?', whereArgs: [loadoutId], limit: 1);
+      if (existing.isEmpty) {
+        throw StateError('Loadout not found: $loadoutId');
+      }
+      await txn.update('loadouts', {
+        'combat_style': combatStyle,
+        'discipline': discipline,
+        'updated_at': _nowMs(),
+      }, where: 'id = ?', whereArgs: [loadoutId]);
+      await txn.delete('loadout_slots',
+          where: 'loadout_id = ?', whereArgs: [loadoutId]);
+      await txn.delete('loadout_globals',
+          where: 'loadout_id = ?', whereArgs: [loadoutId]);
+      await txn.insert('loadout_globals', {
+        'loadout_id': loadoutId,
+        'stim_key': stimKey,
+        'crystal_main_key': crystalMainKey,
+        'crystal_off_key': crystalOffKey,
+      });
+      for (final r in slotRows) {
+        await txn.insert('loadout_slots', {
+          'loadout_id': loadoutId,
+          'slot': r.slot.name,
+          'rating': r.rating,
+          'focus': r.focus.name,
+          'augment_key': r.augmentKey,
+          'preferred_profile': r.preferredProfile.name,
+          'crystal_key': r.crystalKey,
+          'relic_effect': r.relicEffect?.name,
+          'relic_active': r.relicActive ? 1 : 0,
+        });
+      }
     });
   }
 
@@ -481,6 +540,8 @@ class LoadoutRepository {
           'augment_key': r['augment_key'],
           'preferred_profile': r['preferred_profile'],
           'crystal_key': r['crystal_key'],
+          'relic_effect': r['relic_effect'],
+          'relic_active': r['relic_active'] ?? 0,
         });
       }
 

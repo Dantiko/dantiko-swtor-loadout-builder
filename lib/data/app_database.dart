@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:path/path.dart';
+import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class AppDatabase {
@@ -16,16 +17,48 @@ class AppDatabase {
     return _database!;
   }
 
-  static Future<Database> _initDatabase() async {
-    // Desktop support
+  static String? _configuredDatabasePath;
+  static Future<void>? _configuration;
+
+  /// Use one stable location in debug and packaged Windows releases.
+  /// Never move or delete an existing database.
+  static Future<void> configureDatabaseLocation() =>
+      _configuration ??= _configureDatabaseLocation();
+
+  static Future<void> _configureDatabaseLocation() async {
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
       sqfliteFfiInit();
       databaseFactory = databaseFactoryFfi;
     }
 
-    final dbPath = await getDatabasesPath();
-    final path = join(dbPath, _dbName);
+    late final Directory rootDir;
+    if (Platform.isWindows) {
+      final appData = Platform.environment['APPDATA'];
+      if (appData == null || appData.isEmpty) {
+        throw StateError('APPDATA is not available; cannot locate saved loadouts.');
+      }
+      rootDir = Directory(p.join(appData, 'Dantiko', 'DantikoLB'));
+    } else {
+      final appSupport = await getApplicationSupportDirectory();
+      rootDir = Directory(p.join(appSupport.parent.path, 'DantikoLB'));
+    }
 
+    final dataDir = Directory(p.join(rootDir.path, 'data'));
+    final exportDir = Directory(p.join(rootDir.path, 'exports'));
+    await dataDir.create(recursive: true);
+    await exportDir.create(recursive: true);
+
+    _configuredDatabasePath = p.join(dataDir.path, _dbName);
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+      databaseFactoryFfi.setDatabasesPath(dataDir.path);
+    }
+  }
+
+  static Future<Database> _initDatabase() async {
+    await configureDatabaseLocation();
+    final path = _configuredDatabasePath!;
+    // This is the original user-data location, including Dantiko/DantikoLB.
+    // Existing databases are opened and migrated in place.
     return await openDatabase(
       path,
       version: _dbVersion,
@@ -107,8 +140,19 @@ class AppDatabase {
 
   static Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
     if (oldVersion < 3) {
-      await db.execute('ALTER TABLE loadout_slots ADD COLUMN relic_effect TEXT;');
-      await db.execute('ALTER TABLE loadout_slots ADD COLUMN relic_active INTEGER NOT NULL DEFAULT 0;');
+      // Some existing databases already contain one or both relic columns
+      // even though their SQLite user_version is older than 3.
+      final columns = await db.rawQuery('PRAGMA table_info(loadout_slots)');
+      final columnNames = columns.map((row) => row['name'] as String).toSet();
+
+      if (!columnNames.contains('relic_effect')) {
+        await db.execute('ALTER TABLE loadout_slots ADD COLUMN relic_effect TEXT;');
+      }
+      if (!columnNames.contains('relic_active')) {
+        await db.execute(
+          'ALTER TABLE loadout_slots ADD COLUMN relic_active INTEGER NOT NULL DEFAULT 0;',
+        );
+      }
     }
     if (oldVersion < 2) {
       // Recreate loadout_globals with crystals (simple migration)

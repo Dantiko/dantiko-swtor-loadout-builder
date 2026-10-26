@@ -2214,6 +2214,10 @@ class _GearLayoutScreenState extends State<GearLayoutScreen> {
                 },
               ),
               actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(ctx).pop(),
+                  child: const Text('Cancel'),
+                ),
                 OutlinedButton(
                   onPressed: () async {
                     await _importLoadoutFileAlwaysPromptCharacter();

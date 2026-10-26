@@ -1,56 +1,14 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
+import 'data/app_database.dart';
 import 'services/asset_repository.dart';
 import 'ui/gear_layout_screen.dart';
 import 'package:window_manager/window_manager.dart';
 
-Future<void> _initializeDatabaseLocation() async {
-  if (!(Platform.isWindows || Platform.isLinux || Platform.isMacOS)) return;
-
-  sqfliteFfiInit();
-  databaseFactory = databaseFactoryFfi;
-
-  // Base AppData location
-  final appSupport = await getApplicationSupportDirectory();
-
-  // Root folder for the app
-  final rootDir = Directory(
-    p.join(appSupport.parent.path, 'DantikoLB'),
-  );
-
-  if (!await rootDir.exists()) {
-    await rootDir.create(recursive: true);
-  }
-
-  // Data directory (where SQLite DB lives)
-  final dataDir = Directory(
-    p.join(rootDir.path, 'data'),
-  );
-
-  if (!await dataDir.exists()) {
-    await dataDir.create(recursive: true);
-  }
-
-  // Export directory for loadout files
-  final exportDir = Directory(
-    p.join(rootDir.path, 'exports'),
-  );
-
-  if (!await exportDir.exists()) {
-    await exportDir.create(recursive: true);
-  }
-
-  // Tell sqflite where to store DB files
-  databaseFactoryFfi.setDatabasesPath(dataDir.path);
-}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await _initializeDatabaseLocation();
+  await AppDatabase.configureDatabaseLocation();
   
   await windowManager.ensureInitialized();
 
